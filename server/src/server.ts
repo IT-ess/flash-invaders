@@ -1,9 +1,8 @@
 import * as http from "http"
-import * as dotenv from "dotenv"
 import { app } from "./app"
+import { loadConfig } from "./config/Config"
 
-dotenv.config()
-
+const config = loadConfig("./.env")
 const server = http.createServer(app)
 
 async function startServer() {
