@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  mysql-development: # adding a non-root user could be useful
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: helloworld
+      MYSQL_DATABASE: flashinvaders
+    ports:
+      - "3308:3306"
