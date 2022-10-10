@@ -6,7 +6,7 @@ export type MainInstance = { app: Express; config: Config }
 
 async function main(): Promise<MainInstance> {
   const config = loadConfig("../.env")
-  const sequelize = createSequelizeInstance(config)
+  const sequelize = await createSequelizeInstance(config)
   const app: Express = express()
 
   return { app: app, config: config }
