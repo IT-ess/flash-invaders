@@ -2,13 +2,13 @@
   "name": "flash-invaders",
   "version": "0.0.1",
   "description": "A flash invaders clone with a webapp",
-  "main": "server.js",
+  "main": "index.js",
   "repository": "https://github.com/IT-ess/flash-invaders.git",
   "author": "Itess <me@aloiseau.com>",
   "license": "MIT",
   "scripts": {
     "build": "yarn rimraf ./dist && tsc",
-    "start": "NODE_PATH=dist node dist/server.js"
+    "start": "NODE_PATH=dist node dist/index.js"
   },
   "private": true,
   "devDependencies": {

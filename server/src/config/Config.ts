@@ -1,4 +1,5 @@
 import ConfigLoader from "../utils/ConfigLoader"
+import * as dotenv from "dotenv"
 
 export type Config = {
   env: string
@@ -24,6 +25,7 @@ export type LoggerConfig = {
 }
 
 export function loadConfig(path: string): Config {
+  dotenv.config() // shouldn't be necessary, but I have an error if I do not call it before loading config.
   const configLoader = new ConfigLoader(path)
   return {
     env: configLoader.getString("NODE_ENV", "development"),
@@ -42,13 +44,5 @@ export function loadConfig(path: string): Config {
       password: configLoader.getString("DB_PASSWORD"),
       database: configLoader.getString("DB_NAME"),
     },
-  }
-}
-
-// This configuration MUST NOT fail so that we are always able to build a logger.
-export function loadLoggerConfig(path: string): LoggerConfig {
-  const configLoader = new ConfigLoader(path)
-  return {
-    level: configLoader.getString("LOGGER_LEVEL", "info"),
   }
 }
