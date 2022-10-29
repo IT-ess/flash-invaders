@@ -1,14 +1,4 @@
-// Creates a readable stream to retrieve quizs and invaders. --> in the constructor
-import { parse } from "csv-parse/."
-
-class InvadersModel {
-  path: string
-
-  constructor(pathToInvaders: string) {
-    this.path = pathToInvaders
-  }
-
-  public createReadStream() {
-    const parser = parse({ delimiter: "," })
-  }
+export class InvadersModel {
+  // change all structure according to this : https://sequelize.org/docs/v6/other-topics/typescript/
+  async consolidateDatabase() {}
 }
