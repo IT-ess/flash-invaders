@@ -1,11 +1,11 @@
-// Creates a readable stream to retrieve quizs and invaders. --> in the constructor
 import { parse } from "csv-parse"
 import * as fs from "fs"
 import * as path from "path"
+import { Readable } from "stream"
 
 export type RawData = {
   id: number
-  name?: string
+  name: string
   coord_lat: number
   coord_long: number
   question1: string
@@ -16,17 +16,24 @@ export type RawData = {
   sol1: number
 }
 export class DataModel {
-  pathCSV = path.join(__dirname, "..", "..", "data", "/data.csv")
+  private pathCSV = path.join(__dirname, "..", "..", "data", "/data.csv")
 
-  constructor() {
-    this.fetchPlanetsFromCSV()
-  }
-
-  fetchPlanetsFromCSV() {
-    const parser = parse({ columns: true, delimiter: ";" }, function (err, records) {
+  async fetchPlanetsFromCSV(): Promise<RawData[]> {
+    const parser = parse({ columns: true, delimiter: ";" }, function (err, records: RawData[]) {
       if (err) throw err
+      console.log(`${records.length} invaders found`)
       console.log(records)
     })
-    fs.createReadStream(this.pathCSV).pipe(parser)
+    const stream = fs.createReadStream(this.pathCSV).pipe(parser)
+    return this.streamToRawData(stream)
+  }
+
+  private async streamToRawData(stream: Readable): Promise<RawData[]> {
+    const chunks: RawData[] = []
+    return new Promise((resolve, reject) => {
+      stream.on("data", (rawData) => chunks.push(rawData))
+      stream.on("error", (err) => reject(err))
+      stream.on("end", () => resolve(chunks))
+    })
   }
 }

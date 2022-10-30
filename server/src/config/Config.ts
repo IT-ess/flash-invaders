@@ -10,13 +10,8 @@ export type Config = {
       accessControlAllowOrigin: string
     }
   }
-  databaseClient: string
-  mysql: {
-    host: string
-    port: number
-    user: string
-    password: string
-    database: string
+  redis: {
+    url: string
   }
 }
 
@@ -36,13 +31,8 @@ export function loadConfig(path: string): Config {
         accessControlAllowOrigin: configLoader.getString("CORS_ACCESS_CONTROL_ALLOW_ORIGIN", "*"),
       },
     },
-    databaseClient: configLoader.getString("DB_DATABASE_CLIENT", "mysql"),
-    mysql: {
-      host: configLoader.getString("DB_HOST"),
-      port: configLoader.getInt("DB_PORT"),
-      user: configLoader.getString("DB_USERNAME"),
-      password: configLoader.getString("DB_PASSWORD"),
-      database: configLoader.getString("DB_NAME"),
+    redis: {
+      url: configLoader.getString("REDIS_URL"),
     },
   }
 }
