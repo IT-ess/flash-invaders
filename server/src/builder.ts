@@ -17,7 +17,6 @@ async function main(): Promise<MainInstance> {
   // Create Models
   const dataModel = new DataModel()
   const invadersModel = new InvadersModel(redis, invaderSchema)
-  //console.log(await invadersModel.getInvaderById("01GGMSGA2JWM86PX4RAC262X51"))
 
   // Create controllers
   const invadersController = new InvadersController(invadersModel, dataModel)

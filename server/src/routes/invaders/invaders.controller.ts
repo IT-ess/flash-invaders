@@ -11,6 +11,7 @@ export class InvadersController {
   constructor(invadersModel: InvadersModel, dataModel: DataModel) {
     this.#invadersModel = invadersModel
     this.#dataModel = dataModel
+    this.httpGetInvader = this.httpGetInvader.bind(this)
   }
   async loadInvadersOnstart() {
     const rawData = await this.#dataModel.fetchPlanetsFromCSV()
@@ -18,19 +19,19 @@ export class InvadersController {
     this.#invadersModel.postInvader(invaders)
   }
 
-  //   async httpGetInvader(req: Request, res: Response): Promise<Response> {
-  //     try {
-  //       const invader = await this.#invadersModel.getInvaderById(req.params.id)
-  //       console.log(invader)
-  //       if (invader === undefined) {
-  //         return res.status(404).json("No invader found")
-  //       } else {
-  //         return res.status(200).json(invader)
-  //       }
-  //     } catch (err) {
-  //       throw err
-  //     }
-  //   } not working now --> error :  TypeError: Cannot read property '#invadersModel' of undefined
+  async httpGetInvader(req: Request, res: Response): Promise<Response> {
+    try {
+      const invader = await this.#invadersModel.getInvaderById(req.params.id)
+      console.log(invader)
+      if (invader === undefined) {
+        return res.status(404).json("No invader found")
+      } else {
+        return res.status(200).json(invader)
+      }
+    } catch (err) {
+      throw err
+    }
+  }
 
   private mapInvaders(rawData: RawData[]): InvaderItem[] {
     return rawData.map(function (raw) {
