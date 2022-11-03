@@ -8,6 +8,7 @@ export class InvadersModel {
   constructor(redis: Client, invadersSchema: Schema<Invader>) {
     this.#redis = redis
     this.#repository = this.#redis.fetchRepository(invadersSchema)
+    this.#repository.createIndex()
   }
 
   async postInvader(rawInvaders: InvaderItem[]) {
@@ -18,5 +19,13 @@ export class InvadersModel {
 
   async getInvaderById(id: string): Promise<Invader> {
     return this.#repository.fetch(id)
+  }
+
+  async getInvaderByLocation(lat: number, long: number): Promise<Invader | null> {
+    return this.#repository
+      .search()
+      .where("location")
+      .inRadius((circle) => circle.longitude(long).latitude(lat).radius(10).meters) // Put radius in dot env ?
+      .return.first()
   }
 }

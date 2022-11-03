@@ -9,7 +9,8 @@ export class InvadersRouter {
   }
   getInvadersRouter(): Router {
     const invadersRouter = Router()
-    invadersRouter.get("/:id", this.#controller.httpGetInvader)
+    invadersRouter.get("/:id", this.#controller.httpGetInvaderById)
+    invadersRouter.get("/", this.#controller.httpGetInvaderByLocation)
     return invadersRouter
   }
 }

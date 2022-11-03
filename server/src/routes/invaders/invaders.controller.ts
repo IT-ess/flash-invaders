@@ -11,7 +11,8 @@ export class InvadersController {
   constructor(invadersModel: InvadersModel, dataModel: DataModel) {
     this.#invadersModel = invadersModel
     this.#dataModel = dataModel
-    this.httpGetInvader = this.httpGetInvader.bind(this)
+    this.httpGetInvaderById = this.httpGetInvaderById.bind(this)
+    this.httpGetInvaderByLocation = this.httpGetInvaderByLocation.bind(this)
   }
   async loadInvadersOnstart() {
     const rawData = await this.#dataModel.fetchPlanetsFromCSV()
@@ -19,7 +20,7 @@ export class InvadersController {
     this.#invadersModel.postInvader(invaders)
   }
 
-  async httpGetInvader(req: Request, res: Response): Promise<Response> {
+  async httpGetInvaderById(req: Request, res: Response): Promise<Response> {
     try {
       const invader = await this.#invadersModel.getInvaderById(req.params.id)
       console.log(invader)
@@ -29,6 +30,23 @@ export class InvadersController {
         return res.status(200).json(invader)
       }
     } catch (err) {
+      throw err
+    }
+  }
+
+  async httpGetInvaderByLocation(req: Request, res: Response): Promise<Response> {
+    try {
+      if (req.query.lat === undefined || req.query.long === undefined) {
+        return res.status(400).json("Bad request")
+      }
+      const invader = await this.#invadersModel.getInvaderByLocation(+req.query.lat, +req.query.long)
+      if (invader === null) {
+        return res.status(404).json("No invader there")
+      } else {
+        return res.status(200).json(invader)
+      }
+    } catch (err) {
+      console.error(err)
       throw err
     }
   }
