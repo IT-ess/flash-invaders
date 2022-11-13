@@ -13,7 +13,7 @@ export class InvadersModel {
 
   async postInvader(rawInvaders: InvaderItem[]) {
     rawInvaders.forEach((invader) => {
-      this.#repository.createAndSave(invader).catch((err) => console.log(err))
+      this.#repository.createAndSave(invader).catch((err) => console.error(err))
     })
   }
 
@@ -25,7 +25,7 @@ export class InvadersModel {
     return this.#repository
       .search()
       .where("location")
-      .inRadius((circle) => circle.longitude(long).latitude(lat).radius(10).meters) // Put radius in dot env ?
+      .inRadius((circle) => circle.longitude(long).latitude(lat).radius(10).meters) // TODO Put radius in dot env ?
       .return.first()
   }
 }

@@ -1,5 +1,4 @@
-import { Request, Response, Router } from "express"
-import { Readable } from "stream"
+import { Request, Response } from "express"
 import { DataModel, RawData } from "../../models/data.model"
 import { InvaderItem } from "../../models/invaders/invader.entity"
 import { InvadersModel } from "../../models/invaders/invaders.model"
@@ -23,7 +22,6 @@ export class InvadersController {
   async httpGetInvaderById(req: Request, res: Response): Promise<Response> {
     try {
       const invader = await this.#invadersModel.getInvaderById(req.params.id)
-      console.log(invader)
       if (invader === undefined) {
         return res.status(404).json("No invader found")
       } else {
