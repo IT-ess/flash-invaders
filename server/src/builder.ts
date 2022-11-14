@@ -21,12 +21,12 @@ async function main(): Promise<MainInstance> {
 
   // Create Models
   const dataModel = new DataModel()
-  const invadersModel = new InvadersModel(redisOM, invaderSchema)
+  const invadersModel = new InvadersModel(redisOM, config, invaderSchema)
 
   // Create controllers
   const invadersController = new InvadersController(invadersModel, dataModel)
   const loginController = new LoginController()
-  await invadersController.loadInvadersOnstart() // needed to load invaders in DB
+  await invadersController.loadInvadersOnstart()
 
   // Create routers
   const invadersRouter = new InvadersRouter(invadersController)
@@ -48,10 +48,10 @@ async function main(): Promise<MainInstance> {
     session({
       store: new RedisStore({ client: redisSessionClient }),
       saveUninitialized: false,
-      secret: "keyboard cat", // TODO put the secret in dotenv
+      secret: config.redis.sessionSecret,
       resave: false,
       cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 3, // put the number of days in dot env
+        maxAge: 1000 * 60 * 60 * 24 * config.redis.sessionExpiration,
       },
     })
   )

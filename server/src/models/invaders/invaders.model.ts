@@ -1,12 +1,15 @@
 import { Client, Repository, Schema } from "redis-om"
+import { Config } from "../../config/Config"
 import { Invader, InvaderItem } from "./invader.entity"
 
 export class InvadersModel {
   #redis: Client
+  #config: Config
   #repository: Repository<Invader>
 
-  constructor(redis: Client, invadersSchema: Schema<Invader>) {
+  constructor(redis: Client, config: Config, invadersSchema: Schema<Invader>) {
     this.#redis = redis
+    this.#config = config
     this.#repository = this.#redis.fetchRepository(invadersSchema)
     this.#repository.createIndex()
   }
@@ -25,7 +28,9 @@ export class InvadersModel {
     return this.#repository
       .search()
       .where("location")
-      .inRadius((circle) => circle.longitude(long).latitude(lat).radius(10).meters) // TODO Put radius in dot env ?
+      .inRadius(
+        (circle) => circle.longitude(long).latitude(lat).radius(this.#config.gameSettings.areaOfDetection).meters
+      )
       .return.first()
   }
 }
