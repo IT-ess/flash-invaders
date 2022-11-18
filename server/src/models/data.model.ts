@@ -13,7 +13,25 @@ export type RawData = {
   res1_2: string
   res1_3: string
   res1_4: string
-  sol1: number
+  sol1: string
+  question2: string
+  res2_1: string
+  res2_2: string
+  res2_3: string
+  res2_4: string
+  sol2: string
+  question3: string
+  res3_1: string
+  res3_2: string
+  res3_3: string
+  res3_4: string
+  sol3: string
+  question4: string
+  res4_1: string
+  res4_2: string
+  res4_3: string
+  res4_4: string
+  sol4: string
 }
 export class DataModel {
   private pathCSV = path.join(__dirname, "..", "..", "data", "/data.csv")
