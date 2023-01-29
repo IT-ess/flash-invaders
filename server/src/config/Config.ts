@@ -12,6 +12,11 @@ export type Config = {
   }
   redis: {
     url: string
+    sessionSecret: string
+    sessionExpiration: number
+  }
+  gameSettings: {
+    areaOfDetection: number
   }
 }
 
@@ -33,6 +38,11 @@ export function loadConfig(path: string): Config {
     },
     redis: {
       url: configLoader.getString("REDIS_URL"),
+      sessionExpiration: configLoader.getInt("SESSION_EXPIRATION", 3),
+      sessionSecret: configLoader.getString("SESSION_SECRET"),
+    },
+    gameSettings: {
+      areaOfDetection: configLoader.getInt("SCAN_RADIUS", 10),
     },
   }
 }
