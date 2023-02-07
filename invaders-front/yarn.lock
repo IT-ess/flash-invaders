@@ -352,6 +352,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sveltekit-i18n/base@npm:1.2.1":
+  version: 1.2.1
+  resolution: "@sveltekit-i18n/base@npm:1.2.1"
+  dependencies:
+    "@sveltekit-i18n/parser-default": ^1.x
+  peerDependencies:
+    svelte: ^3.x
+  dependenciesMeta:
+    "@sveltekit-i18n/parser-default":
+      optional: true
+  checksum: bdf6dd7f65ae4887c1549b02a10c19f7e6f2931da2fa91c8c59a47ea3333e73df55b0cbf24ff93f96243a5fb235ccf7ac5d0c89a9c5ca416577eef36c66edfa5
+  languageName: node
+  linkType: hard
+
+"@sveltekit-i18n/parser-default@npm:1.0.3, @sveltekit-i18n/parser-default@npm:^1.x":
+  version: 1.0.3
+  resolution: "@sveltekit-i18n/parser-default@npm:1.0.3"
+  checksum: a9f7de2d52f195346dbda75e10fc3162c9c5ee2e966b3005f111d8a2eb26974ed95d78707b9b2bbfe3dc04bd1365a550c6e57d9e045249d1748582bc20b96611
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -1660,6 +1681,7 @@ __metadata:
     prettier-plugin-svelte: ^2.8.1
     svelte: ^3.54.0
     svelte-check: ^2.9.2
+    sveltekit-i18n: ^2.2.2
     tslib: ^2.4.1
     typescript: ^4.9.3
     vite: ^4.0.0
@@ -2790,6 +2812,18 @@ __metadata:
   version: 3.55.0
   resolution: "svelte@npm:3.55.0"
   checksum: 0b182973a4152fec8baa59cc168ca4528d63faba130bc83063a7d55d1732a81303b48745f4bffe53436b875b9c98960b0265d45473e5b3d25c77b116fdc274f0
+  languageName: node
+  linkType: hard
+
+"sveltekit-i18n@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "sveltekit-i18n@npm:2.2.2"
+  dependencies:
+    "@sveltekit-i18n/base": 1.2.1
+    "@sveltekit-i18n/parser-default": 1.0.3
+  peerDependencies:
+    svelte: ^3.x
+  checksum: b56ced82e3dc6f9a6bef1409aad5fbf1d82c5b9617931ec82e3c7a134905ac105c7bf083ab30bf3483848ed5818ead2405f9a5d9230f25932fd28e8f83e609eb
   languageName: node
   linkType: hard
 

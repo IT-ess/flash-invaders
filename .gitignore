@@ -108,3 +108,6 @@ dist
 
 # Mac weird files
 .DS_STORE
+
+# Yarn
+.yarn
