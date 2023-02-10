@@ -1,3 +1,7 @@
 {
-    "content":"ich bin ein test de contenu"
+    "content":"ich bin ein test de contenu",
+    "button": {
+        "scan": "scannen ein zwietess",
+        "map": "karte ein zwietess"
+    }
 }
