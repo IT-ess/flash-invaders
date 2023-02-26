@@ -1,6 +1,6 @@
 import { invaderSchema } from './models/invaders/invader.entity';
 import { InvadersModel } from './models/invaders/invaders.model';
-import { getRedisOMClient } from './utils/RedisLoader';
+import { getRedisOMClient } from './utils/RedisOMLoader';
 
 type MainInstance = {
 	invadersModel: InvadersModel;
