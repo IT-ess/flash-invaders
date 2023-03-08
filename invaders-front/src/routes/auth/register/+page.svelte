@@ -12,16 +12,14 @@
 
 	<h2>Register</h2>
 
-	<label for="name">Name</label>
-	<input type="text" id="name" name="name" required />
+	<label for="firstname">Firstname</label>
+	<input type="text" id="firstname" name="firstname" required />
 
-	<label for="email">Email</label>
-	<input type="text" id="email" name="email" required />
+	<label for="lastname">Lastname</label>
+	<input type="text" id="lastname" name="lastname" required />
 
-	<label for="password">Password</label>
-	<input type="password" id="password" name="password" required />
-
+	<label for="locale">Locale</label>
+	<input type="text" id="locale" name="locale" required /> <!-- TODO : use a select -->
+	
 	<button type="submit">Register</button>
 </form>
-
-<p>Already have an account? <a href="/auth/login">Login</a></p>

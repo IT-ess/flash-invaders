@@ -11,10 +11,11 @@ datasource db {
 }
 
 model User {
-  id            String    @id @unique
-  name          String
-  email         String  @unique
-  username      String? @unique
+  id            String  @id @unique
+  username      String @unique
+  score         Int    
+  progression   Int
+  locale        String   
   session       Session[]
   Key           Key[]
   // here you can add custom fields for your user

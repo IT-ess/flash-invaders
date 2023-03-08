@@ -9,7 +9,7 @@ export const POST: RequestHandler = async ({ locals }) => {
 		throw redirect(302, '/');
 	}
 
-	await auth.invalidateSession(session.sessionId);
+	await auth.deleteUser(session.userId);
 	locals.setSession(null);
 
 	throw redirect(302, '/');

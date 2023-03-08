@@ -4,7 +4,12 @@
 /// <reference types="lucia-auth" />
 declare namespace Lucia {
 	type Auth = import('$lib/server/lucia').Auth;
-	type UserAttributes = import('@lucia-auth/sveltekit').UserAttributes;
+	type UserAttributes = {
+		username: string;
+		score: number;
+		progression: number;
+		locale: string;
+	};
 }
 
 /// <reference types="@sveltejs/kit" />

@@ -77,12 +77,12 @@
 
 
 {#if data.user}
-	<p>Welcome back, {data.user.name}</p>
+	<p>Welcome back, {data.user.username}</p>
 	<form action="/auth/logout" method="POST">
 		<button type="submit">Log out</button>
 	</form>
 {:else}
-	<p><a href="/auth/login">Log in</a></p>
+	<p><a href="/auth/register">Register</a></p>
 {/if}
 
 <div>

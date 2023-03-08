@@ -13,16 +13,16 @@ export const load: PageServerLoad = async ({ locals }) => {
 };
 
 export const actions: Actions = {
-	default: async ({ request }) => {
-		const { name, email, password } = Object.fromEntries(await request.formData()) as Record<
+	default: async ({ request, locals }) => {
+		const { firstname, lastname, locale } = Object.fromEntries(await request.formData()) as Record<
 			string,
 			string
 		>;
 
 		const schema = z.object({
-			name: z
+			firstname: z
 				.string({
-					required_error: 'Name is required.'
+					required_error: 'Firstname is required.'
 				})
 				.min(3, {
 					message: 'Name must be at least 3 characters long.'
@@ -30,34 +30,34 @@ export const actions: Actions = {
 				.max(255, {
 					message: 'Name must be less than 255 characters long.'
 				}),
-			email: z
+			lastname: z
 				.string({
-					required_error: 'Email is required.'
+					required_error: 'Lastname is required.'
 				})
-				.email({
-					message: 'Email is invalid.'
+				.min(3, {
+					message: 'Name must be at least 3 characters long.'
 				})
 				.max(255, {
-					message: 'Email must be less than 255 characters long.'
+					message: 'Name must be less than 255 characters long.'
 				}),
-			password: z
+			locale: z
 				.string({
-					required_error: 'Password is required.'
+					required_error: 'Locale is required.'
 				})
-				.min(6, {
-					message: 'Password must be at least 6 characters long.'
+				.length(2, {
+					message: 'Locale must be 2 charcters long.'
 				})
-				.max(255, {
-					message: 'Password must be less than 255 characters long.'
+				.max(2, {
+					message: 'Name must be less than 255 characters long.'
 				})
 		});
 
 		// Validate the data
 		try {
 			schema.parse({
-				name,
-				email,
-				password
+				firstname,
+				lastname,
+				locale
 			});
 		} catch (err) {
 			let message = 'Invalid data.';
@@ -77,23 +77,26 @@ export const actions: Actions = {
 
 		// Create the user
 		try {
+			const username = `${firstname.toLowerCase()}.${lastname.toLowerCase()}`;
 			await auth.createUser({
 				key: {
-					providerId: 'email',
-					providerUserId: email,
-					password: password
+					providerId: 'username',
+					providerUserId: username,
+					password: null
 				},
 				attributes: {
-					name,
-					email
+					username: username,
+					score: 0,
+					progression: 0,
+					locale: locale
 				}
 			});
 		} catch (err) {
 			if (err instanceof LuciaError) {
 				if (err.message === 'AUTH_DUPLICATE_KEY_ID') {
 					return fail(400, {
-						message: 'Email already in use.',
-						invalidField: 'email',
+						message: 'Username already in use.',
+						invalidField: 'firstname',
 						error: true
 					});
 				}
@@ -104,6 +107,21 @@ export const actions: Actions = {
 				error: true
 			});
 		}
-		throw redirect(302, '/login');
+		// Create the session
+		try {
+			const username = `${firstname.toLowerCase()}.${lastname.toLowerCase()}`;
+			const key = await auth.getKey('username', username);
+
+			const session = await auth.createSession(key.userId);
+
+			locals.setSession(session);
+		} catch (err) {
+			return fail(400, {
+				message: 'Invalid credentials.',
+				error: true,
+				invalidField: ''
+			});
+		}
+		throw redirect(302, '/');
 	}
 };
