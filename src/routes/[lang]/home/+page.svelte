@@ -92,6 +92,7 @@
 <p>Test : {test.name} {test.entityId}</p>
 {#if accuracy > 0}
 	<p>Accuracy : {accuracy}</p>
-{/if}
+{/if} 
+<!-- TODO : I must implement some accuracy checks : if the accuracy is not sufficient, reject the call.-->
 
 <button on:click={returnInvaderOrNot}>Chercher</button>
