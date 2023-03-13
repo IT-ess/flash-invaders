@@ -10,6 +10,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 	if (session) {
 		throw redirect(302, '/');
 	}
+	return {};
 };
 
 export const actions: Actions = {
@@ -78,8 +79,8 @@ export const actions: Actions = {
 		// Create the user
 		try {
 			const username = `${firstname.toLowerCase()}.${lastname.toLowerCase()}`;
-			await auth.createUser({
-				key: {
+			const user = await auth.createUser({
+				primaryKey: {
 					providerId: 'username',
 					providerUserId: username,
 					password: null
@@ -91,6 +92,10 @@ export const actions: Actions = {
 					locale: locale
 				}
 			});
+
+			const session = await auth.createSession(user.id);
+
+			locals.setSession(session);
 		} catch (err) {
 			if (err instanceof LuciaError) {
 				if (err.message === 'AUTH_DUPLICATE_KEY_ID') {
@@ -107,21 +112,6 @@ export const actions: Actions = {
 				error: true
 			});
 		}
-		// Create the session
-		try {
-			const username = `${firstname.toLowerCase()}.${lastname.toLowerCase()}`;
-			const key = await auth.getKey('username', username);
-
-			const session = await auth.createSession(key.userId);
-
-			locals.setSession(session);
-		} catch (err) {
-			return fail(400, {
-				message: 'Invalid credentials.',
-				error: true,
-				invalidField: ''
-			});
-		}
-		throw redirect(302, '/');
+		throw redirect(302, `/${locale}/home`);
 	}
 };

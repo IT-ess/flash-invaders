@@ -9,7 +9,10 @@ export const auth = lucia({
 	transformUserData: (user) => {
 		return {
 			id: user.id,
-			username: user.username
+			username: user.username,
+			score: user.score,
+			progression: user.progression,
+			locale: user.locale
 		};
 	}
 });
