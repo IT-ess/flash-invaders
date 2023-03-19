@@ -7,8 +7,9 @@ declare namespace Lucia {
 	type UserAttributes = {
 		username: string;
 		score: number;
-		progression: number;
 		locale: string;
+		zwt1: number;
+		zwt2: number;
 	};
 }
 

@@ -88,7 +88,8 @@ export const actions: Actions = {
 				attributes: {
 					username: username,
 					score: 0,
-					progression: 0,
+					zwt1: 0,
+					zwt2: 0,
 					locale: locale
 				}
 			});

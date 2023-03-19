@@ -1,12 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 
-    export let data: PageData;  
-
-    import { getUser } from "@lucia-auth/sveltekit/client";
-
-	const user = getUser(); // fetches from the server. Can't we just get it from the session?
-	const userId = $user?.id;
+    export let data: PageData;
 
     const questions = data.questions;
 

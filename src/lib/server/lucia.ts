@@ -11,8 +11,9 @@ export const auth = lucia({
 			id: user.id,
 			username: user.username,
 			score: user.score,
-			progression: user.progression,
-			locale: user.locale
+			locale: user.locale,
+			zwt1: user.zwt1,
+			zwt2: user.zwt2
 		};
 	}
 });
