@@ -17,7 +17,7 @@ const config: Config = {
 		{
 			locale: 'fr',
 			key: 'auth',
-			routes: ['/auth/logout', '/auth/register'],
+			routes: ['/auth/register'],
 			loader: async () => (await import('./fr/auth.json')).default
 		},
 		{
@@ -34,7 +34,7 @@ const config: Config = {
 		{
 			locale: 'de',
 			key: 'auth',
-			routes: ['/auth/logout', '/auth/register'],
+			routes: ['/auth/register'],
 			loader: async () => (await import('./de/auth.json')).default
 		}
 	]
