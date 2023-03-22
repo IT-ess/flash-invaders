@@ -6,12 +6,12 @@
 	handleSession(page);
 </script>
 
-<div class="bg-slate-500">
+<!-- <div class="bg-slate-500">
 	<nav>
 		<a href="/">home</a>
 		<a href="/gallery">galerie</a>
 	</nav>
-</div>
+</div> -->
 
 
 <slot />
