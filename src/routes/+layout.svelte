@@ -6,12 +6,11 @@
 	handleSession(page);
 </script>
 
-<!-- <div class="bg-slate-500">
-	<nav>
-		<a href="/">home</a>
-		<a href="/gallery">galerie</a>
-	</nav>
-</div> -->
-
-
-<slot />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zwietess</title>
+</head>
+<body class="h-screen">
+	<slot />
+</body>
