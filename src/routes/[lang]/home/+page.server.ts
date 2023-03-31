@@ -1,6 +1,7 @@
 import { main } from '$lib/server/api';
 import type { Actions } from './$types';
 import { auth } from '$lib/server/lucia';
+import { fail } from '@sveltejs/kit';
 
 export const actions = {
 	searchInvader: async ({ locals, request }) => {
@@ -21,31 +22,12 @@ export const actions = {
 					const session = await auth.createSession(updatedUser.id);
 					locals.setSession(session);
 				}
-				return {
-					type: 'success',
-					status: 200,
-					data: invader,
-					success: true
-				};
+				return invader;
 			} else {
-				return {
-					type: 'failure',
-					status: 404,
-					data: {
-						message: 'No invader found'
-					},
-					success: false
-				};
+				return fail(404, { message: 'Not found' });
 			}
 		} else {
-			return {
-				type: 'error',
-				status: 400,
-				error: {
-					message: 'Bad request'
-				},
-				success: false
-			};
+			return fail(400, { lat, long, missing: true });
 		}
 	}
 } satisfies Actions;

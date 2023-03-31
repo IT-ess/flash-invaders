@@ -9,7 +9,7 @@
 
 	<div class="flex-1 bg-gray-200 w-full">
 		<!-- <img src="/logo_jumelage.png" alt="Jumelage logo" /> -->
-		<img src="https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/4795959e-115f-40f2-fdd4-af869a17f600/public" alt="emotions"/>
+		<img src="https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/4795959e-115f-40f2-fdd4-af869a17f600/public" alt="emotions" class="mx-auto"/>
 	</div>
 	<div class="m-5 space-y-4">
 		{#if data.user}

@@ -4,5 +4,6 @@ export class Invader extends Entity {}
 
 export const invaderSchema = new Schema(Invader, {
 	name: { type: 'string' },
-	location: { type: 'point' }
+	location: { type: 'point' },
+	imageUrl: { type: 'string' }
 });

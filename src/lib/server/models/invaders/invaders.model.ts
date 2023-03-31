@@ -27,7 +27,8 @@ export class InvadersModel {
 				location: {
 					longitude: json.location.longitude,
 					latitude: json.location.latitude
-				}
+				},
+				imageUrl: json.imageUrl
 			};
 		} else {
 			return null;

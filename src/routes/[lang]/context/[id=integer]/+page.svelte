@@ -1,7 +1,56 @@
 <script lang="ts">
-	import { Carousel } from 'flowbite-svelte';
+	import { Carousel ,Heading, P} from 'flowbite-svelte';
+	const images = [
+		{
+			id: 0,
+			name: 'Emotions',
+			imgurl:
+				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/4795959e-115f-40f2-fdd4-af869a17f600/public'
+		},
+		{
+			id: 1,
+			name: 'Dom Mocquereau',
+			imgurl:
+				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/008f6a98-2e7b-4e75-7e50-b68e117a8900/public'
+		},
+		{
+			id: 2,
+			name: 'Coeur',
+			imgurl:
+				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/5eb0613b-274f-4694-9e96-4aac082f8200/public'
+		}
+	];
+
+	let showThumbs = false;
+	let showCaptions = false;
+	let showIndicators = false;
 </script>
 
-<div class="max-w-4xl">
-	<!-- <Carousel {images} showCaptions /> -->
+<div class="relative min-h-screen bg-gray-100">
+	<div class="sticky top-0 z-10 bg-slate-600">
+		<Carousel {images} {showThumbs} {showCaptions} {showIndicators} />
+	</div>
+	<div class="pt-1/3 bg-white p-4">
+		<Heading tag="h1">Les émotions</Heading>
+		<P class="text-gray-700">
+			Your scrollable text goes here. Feel free to replace this with your desired content. Lorem
+			ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum odio vitae orci interdum,
+			non pharetra ipsum fermentum. Proin et dolor eget purus efficitur tincidunt ut a nunc. Etiam
+			fringilla, purus nec consectetur vehicula, mi massa suscipit turpis, id congue sapien est ac
+			nisl. nterdum, non pharetra ipsum fermentum. Proin et dolor eget purus efficitur tincidunt ut
+			a nunc. Etiam fringilla, purus nec consectetur vehicula, mi massa suscipit turpis, id congue
+			sapien est ac nisl.Your scrollable text goes here. Feel free to replace this with your desired
+			content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum odio vitae
+			orci interdum, non pharetra ipsum fermentum. Proin et dolor eget purus efficitur tincidunt ut
+			a nunc. Etiam fringilla, purus nec consectetur vehicula, mi massa suscipit turpis, id congue
+			sapien est ac nisl.Your scrollable text goes here. Feel free to replace this with your desired
+			content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum odio vitae
+			orci interdum, non pharetra ipsum fermentum. Proin et dolor eget purus efficitur tincidunt ut
+			a nunc. Etiam fringilla, purus nec consectetur vehicula, mi massa suscipit turpis, id congue
+			sapien est ac nisl.Your scrollable text goes here. Feel free to replace this with your desired
+			content. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum odio vitae
+			orci interdum, non pharetra ipsum fermentum. Proin et dolor eget purus efficitur tincidunt ut
+			a nunc. Etiam fringilla, purus nec consectetur
+		</P>
+	</div>
 </div>

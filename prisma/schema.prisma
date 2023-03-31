@@ -15,18 +15,18 @@ model User {
   username      String @unique
   score         Int    
   locale        String
-  zwt1          Int 
-  zwt2          Int 
-  zwt3          Int 
-  zwt4          Int 
-  zwt5          Int 
-  zwt6          Int 
-  zwt7          Int 
-  zwt8          Int 
-  zwt9          Int 
-  zwt10         Int 
-  zwt11         Int 
-  zwt12         Int 
+  zwt1          Int @default(0)
+  zwt2          Int @default(0)
+  zwt3          Int @default(0)
+  zwt4          Int @default(0)
+  zwt5          Int @default(0)
+  zwt6          Int @default(0)
+  zwt7          Int @default(0)
+  zwt8          Int @default(0)
+  zwt9          Int @default(0)
+  zwt10         Int @default(0)
+  zwt11         Int @default(0)
+  zwt12         Int @default(0)
   session       Session[]
   Key           Key[]
   // here you can add custom fields for your user
