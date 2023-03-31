@@ -69,8 +69,9 @@
 		</div>
 	{:else}
 		<div class="w-full h-full flex flex-col justify-center items-center">
-			<h1>Vos réponses ont été enregistrées.</h1>
+			<h1>Vos réponses ont été enregistrées.</h1> 
 			<form method="POST" action="?/submitScoreAndReturnHome">
+				<!-- TODO: fix this form, the score is no longer updated -->
 				<input name="score" type="hidden" value={getScore()} />
 				<Button type="submit">
 					Retourner à l'accueil

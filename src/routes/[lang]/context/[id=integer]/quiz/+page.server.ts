@@ -41,7 +41,7 @@ export const actions = {
 			throw redirect(307, '/');
 		}
 		const newScore = +score + (user?.score ?? 0);
-		auth.updateUserAttributes(user?.id, { score: newScore });
+		await auth.updateUserAttributes(user?.id, { score: newScore });
 
 		throw redirect(307, '/fr/home');
 	}

@@ -21,6 +21,12 @@ const config: Config = {
 			loader: async () => (await import('./fr/auth.json')).default
 		},
 		{
+			locale: 'fr',
+			key: 'context',
+			routes: [/\/fr\/context\/\d+/],
+			loader: async () => (await import('./fr/context.json')).default
+		},
+		{
 			locale: 'de',
 			key: 'common',
 			loader: async () => (await import('./de/common.json')).default

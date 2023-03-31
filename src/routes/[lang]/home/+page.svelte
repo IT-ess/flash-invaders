@@ -94,7 +94,7 @@
 				</h3>
 				<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{invader.id}</h3>
 
-				<Button href="/fr/quiz/{invader.id}" color="red" class="mr-2">Répondre au quiz</Button>
+				<Button href="/fr/context/{invader.id}" color="red" class="mr-2">Répondre au quiz</Button>
 				<!-- <Button color='alternative'>No, cancel</Button> -->
 			</div>
 		</Modal>

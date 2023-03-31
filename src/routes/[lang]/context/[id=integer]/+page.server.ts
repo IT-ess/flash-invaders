@@ -11,5 +11,5 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 	if (user === null) {
 		throw redirect(307, '/fr/home');
 	}
-	return;
+	return { id: params.id };
 };
