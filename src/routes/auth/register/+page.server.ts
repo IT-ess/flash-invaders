@@ -48,9 +48,6 @@ export const actions: Actions = {
 				.length(2, {
 					message: 'Locale must be 2 charcters long.'
 				})
-				.max(2, {
-					message: 'Name must be less than 255 characters long.'
-				})
 		});
 
 		// Validate the data
@@ -90,6 +87,16 @@ export const actions: Actions = {
 					score: 0,
 					zwt1: 0,
 					zwt2: 0,
+					zwt3: 0,
+					zwt4: 0,
+					zwt5: 0,
+					zwt6: 0,
+					zwt7: 0,
+					zwt8: 0,
+					zwt9: 0,
+					zwt10: 0,
+					zwt11: 0,
+					zwt12: 0,
 					locale: locale
 				}
 			});

@@ -2137,6 +2137,7 @@ __metadata:
     redis-om: ^0.3.6
     svelte: ^3.57.0
     svelte-check: ^3.1.4
+    svelte-icons: ^2.1.0
     sveltekit-i18n: ^2.2.2
     tailwindcss: ^3.2.7
     tslib: ^2.5.0
@@ -3906,6 +3907,13 @@ __metadata:
   peerDependencies:
     svelte: ">=3.19.0"
   checksum: af2e5c356ed6467d6567ce1b908bc077c9d08a89f3ffda81e63989c1c3f374a88b1b67453e86e3674320aa10e7cdf42a10dc551900997b627b4702db447f2bf3
+  languageName: node
+  linkType: hard
+
+"svelte-icons@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "svelte-icons@npm:2.1.0"
+  checksum: a32e305152be010a694cc7afe5848fb8f88dd2dba36624cbd3c92a2bf54e5683c57c44b4faa31bccee19cf9cc855158e588591672c4ae89984e3500bef0c488a
   languageName: node
   linkType: hard
 

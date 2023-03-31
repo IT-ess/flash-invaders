@@ -14,7 +14,3 @@ export const handle: Handle = sequence(handleHooks(auth), async ({ event, resolv
 
 	return await resolve(event);
 });
-
-// je vais sûrement reprendre un truc comme ça en faisant de la validation sur les autorisations présentes dans le cookie.
-// idée : un nombre de 10 chiffres qui représente les auth sur les chaque Zwietess : si 0 pas trouvé, si 1 trouvé mais pas rep au questionnaire, si 2 répondu au questionnaire.
-// cela représente plutôt des états sur chaque Zwietess.

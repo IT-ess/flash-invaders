@@ -4,13 +4,12 @@
 	import { Button, Heading, Span } from 'flowbite-svelte';
 </script>
 
-<!-- <h1 class="text-3xl underline text-gray-500 font-black">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p> -->
 <div class="flex flex-col h-screen justify-center items-center font-sans text-center">
 	<Heading tag="h1" color="primary" class="m-5"><Span gradient>zwietess</Span></Heading>
 
 	<div class="flex-1 bg-gray-200 w-full">
-		<img src="/logo_jumelage.png" alt="Jumelage logo" />
+		<!-- <img src="/logo_jumelage.png" alt="Jumelage logo" /> -->
+		<img src="https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/4795959e-115f-40f2-fdd4-af869a17f600/public" alt="emotions"/>
 	</div>
 	<div class="m-5 space-y-4">
 		{#if data.user}
@@ -31,11 +30,9 @@
 			</Button>
 
 			<form action="/auth/logout" method="POST">
-				<!-- <button type="submit">Log out</button> -->
 				<Button type="submit">Log out</Button>
 			</form>
 		{:else}
-			<!-- <p><a href="/auth/register">Register</a></p> -->
 			<Button href="/auth/register">
 				C'est parti ! / Ich partish <svg
 					aria-hidden="true"

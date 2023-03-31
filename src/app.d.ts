@@ -10,6 +10,16 @@ declare namespace Lucia {
 		locale: string;
 		zwt1: number;
 		zwt2: number;
+		zwt3: number;
+		zwt4: number;
+		zwt5: number;
+		zwt6: number;
+		zwt7: number;
+		zwt8: number;
+		zwt9: number;
+		zwt10: number;
+		zwt11: number;
+		zwt12: number;
 	};
 }
 

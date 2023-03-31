@@ -1,14 +1,6 @@
 import { main } from '$lib/server/api';
-import type { PageServerLoad } from './$types';
 import type { Actions } from './$types';
 import { auth } from '$lib/server/lucia';
-
-export const load: PageServerLoad = async ({ locals }) => {
-	const session = await locals.validate();
-	if (!session) {
-		// unauthenticated
-	}
-};
 
 export const actions = {
 	searchInvader: async ({ locals, request }) => {

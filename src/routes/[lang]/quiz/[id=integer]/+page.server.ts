@@ -1,7 +1,8 @@
-import type { PageServerLoad } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
 import type { QuizItem } from '$lib/entities/quiz';
 import { main } from '$lib/server/api';
+import { auth } from '$lib/server/lucia';
 
 export const load: PageServerLoad = async ({ locals, params }) => {
 	if (+params.id > 12) {
@@ -27,3 +28,21 @@ async function getQuizsFromId(id: number): Promise<QuizItem[]> {
 	const api = await main();
 	return api.quizModel.getQuizsFromId(id); // TODO : Handle error when no Invader is found (when the props are null)
 }
+
+export const actions = {
+	submitScoreAndReturnHome: async ({ locals, request }) => {
+		const data = await request.formData();
+		const score = data.get('score');
+		if (score === null) {
+			throw redirect(307, '/fr/home');
+		}
+		const { user } = await locals.validateUser();
+		if (user === null) {
+			throw redirect(307, '/');
+		}
+		const newScore = +score + (user?.score ?? 0);
+		auth.updateUserAttributes(user?.id, { score: newScore });
+
+		throw redirect(307, '/fr/home');
+	}
+} satisfies Actions;
