@@ -1,7 +1,7 @@
-import { main } from '$lib/server/api';
+import { api } from '$lib/server/api';
 import type { Actions } from './$types';
 import { auth } from '$lib/server/lucia';
-import { fail } from '@sveltejs/kit';
+import { fail, error } from '@sveltejs/kit';
 
 export const actions = {
 	searchInvader: async ({ locals, request }) => {
@@ -9,8 +9,9 @@ export const actions = {
 		const lat = data.get('lat');
 		const long = data.get('long');
 		if (lat && long) {
-			const api = await main();
-			const invader = await api.invadersModel.getInvaderByLocation(+lat, +long);
+			const invader = await api.invadersModel.getInvaderByLocation(+lat, +long).catch((err) => {
+				throw error(500, { message: err.message });
+			});
 			if (invader !== null) {
 				const { user } = await locals.validateUser();
 				if (user !== null && user[`zwt${invader.id}` as keyof Lucia.UserAttributes] === 0) {

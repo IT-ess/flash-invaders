@@ -1,7 +1,7 @@
 import type { Actions, PageServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
 import type { QuizItem } from '$lib/entities/quiz';
-import { main } from '$lib/server/api';
+import { api } from '$lib/server/api';
 import { auth } from '$lib/server/lucia';
 
 export const load: PageServerLoad = async ({ locals, params }) => {
@@ -29,7 +29,6 @@ async function getQuizzesFromAuth(
 }
 
 async function getQuizsFromId(id: number): Promise<QuizItem[]> {
-	const api = await main();
 	return api.quizModel.getQuizsFromId(id);
 }
 
@@ -44,9 +43,15 @@ export const actions = {
 		if (user === null) {
 			throw redirect(307, '/');
 		}
+		console.log(score);
 		const newScore = +score + (user?.score ?? 0);
-		await auth.updateUserAttributes(user?.id, { score: newScore });
+		console.log(newScore);
+		const updatedUser = await auth.updateUserAttributes(user?.id, { score: newScore });
 
+		await auth.invalidateAllUserSessions(updatedUser.id);
+		const session = await auth.createSession(updatedUser.id);
+		locals.setSession(session);
+		// A 500 error is thrown here but I don't know why.
 		throw redirect(307, `/${params.lang}/home`);
 	}
 } satisfies Actions;
