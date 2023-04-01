@@ -32,7 +32,7 @@
 	let showThumbs = false;
 	let showCaptions = false;
 	let showIndicators = false;
-	export let data: PageData;
+	export let data: PageData; // I should use another way to get the id and reserve the data for the images loading
 </script>
 
 <div class="relative min-h-screen bg-gray-100">
