@@ -9,7 +9,7 @@ export const handle: Handle = sequence(handleHooks(auth), async ({ event, resolv
 	// Not for security, just to redirect to login page
 	if (!event.url.pathname.includes('/auth/') && !notAuthRoutes.includes(event.url.pathname)) {
 		const session = await event.locals.validate();
-		if (!session) throw redirect(302, '/auth/register');
+		if (!session) throw redirect(302, '/');
 	}
 
 	return await resolve(event);

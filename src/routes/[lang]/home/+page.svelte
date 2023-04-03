@@ -175,7 +175,7 @@
 					>
 				</Button>
 			</form>
-			<Button
+			<!-- <Button
 				href="https://www.google.com/maps/d/u/0/edit?mid=1qDy-Qcv9ScGx97vlB1Wy_9tvOIumt0I&usp=sharing"
 				target="_blank"
 			>
@@ -192,7 +192,8 @@
 						clip-rule="evenodd"
 					/></svg
 				>
-			</Button>
+			</Button> -->
+			<!-- Update the map to show aproximative locations -->
 		</div>
 	</div>
 </div>

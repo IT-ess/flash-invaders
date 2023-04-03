@@ -34,4 +34,22 @@ export class InvadersModel {
 			return null;
 		}
 	}
+
+	async getInvaderById(id: number): Promise<InvaderType | null> {
+		const invader = await this.#repository.fetch(`${id}`);
+		if (invader !== null) {
+			const json = invader.toJSON();
+			return {
+				id: +json.entityId,
+				name: json.name,
+				location: {
+					longitude: json.location.longitude,
+					latitude: json.location.latitude
+				},
+				imageUrl: json.imageUrl
+			};
+		} else {
+			return null;
+		}
+	}
 }

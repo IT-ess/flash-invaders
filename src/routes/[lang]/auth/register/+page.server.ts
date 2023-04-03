@@ -75,7 +75,8 @@ export const actions: Actions = {
 
 		// Create the user
 		try {
-			const username = `${firstname.toLowerCase()}.${lastname.toLowerCase()}`;
+			const username = `${firstname.trim().toLowerCase()}.${lastname.trim().toLowerCase()}`;
+			// vérifier si les noms composés foutent pas le bordel
 			const user = await auth.createUser({
 				primaryKey: {
 					providerId: 'username',
@@ -85,6 +86,7 @@ export const actions: Actions = {
 				attributes: {
 					username: username,
 					score: 0,
+					zwt0: 0,
 					zwt1: 0,
 					zwt2: 0,
 					zwt3: 0,
@@ -96,7 +98,6 @@ export const actions: Actions = {
 					zwt9: 0,
 					zwt10: 0,
 					zwt11: 0,
-					zwt12: 0,
 					locale: locale
 				}
 			});

@@ -1,1 +1,41 @@
-{}
+{
+    "zwt0": {
+        "name": "Das tuto"
+    },
+    "zwt1": {
+        "name": "Die Glocke"
+    },
+    "zwt2": {
+        "name": "Le clocher"
+    },
+    "zwt3": {
+        "name": "La paix"
+    },
+    "zwt4": {
+        "name": "La borne"
+    },
+    "zwt5": {
+        "name": "Le chant"
+    },
+    "zwt6": {
+        "name": "La Hockete"
+    },
+    "zwt7": {
+        "name": "Le jumelage"
+    },
+    "zwt8": {
+        "name": "La bière"
+    },
+    "zwt9": {
+        "name": "La culture"
+    },
+    "zwt10": {
+        "name": "Les émotions"
+    },
+    "zwt11": {
+        "name": "Le prix"
+    },
+    "zwt100": {
+        "name": "?"
+    }
+}

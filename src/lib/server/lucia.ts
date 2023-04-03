@@ -12,6 +12,7 @@ export const auth = lucia({
 			username: user.username,
 			score: user.score,
 			locale: user.locale,
+			zwt0: user.zwt0,
 			zwt1: user.zwt1,
 			zwt2: user.zwt2,
 			zwt3: user.zwt3,
@@ -22,8 +23,7 @@ export const auth = lucia({
 			zwt8: user.zwt8,
 			zwt9: user.zwt9,
 			zwt10: user.zwt10,
-			zwt11: user.zwt11,
-			zwt12: user.zwt12
+			zwt11: user.zwt11
 		};
 	}
 });

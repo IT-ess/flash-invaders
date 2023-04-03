@@ -11,13 +11,13 @@ const config: Config = {
 		{
 			locale: 'fr',
 			key: 'home',
-			routes: ['/fr/home'], // you can use regexes as well!
+			routes: ['/fr/home'],
 			loader: async () => (await import('./fr/home.json')).default
 		},
 		{
 			locale: 'fr',
 			key: 'auth',
-			routes: ['/auth/register'],
+			routes: ['/fr/auth/register'],
 			loader: async () => (await import('./fr/auth.json')).default
 		},
 		{
@@ -40,8 +40,14 @@ const config: Config = {
 		{
 			locale: 'de',
 			key: 'auth',
-			routes: ['/auth/register'],
+			routes: ['/de/auth/register'],
 			loader: async () => (await import('./de/auth.json')).default
+		},
+		{
+			locale: 'de',
+			key: 'context',
+			routes: [/\/de\/context\/\d+/],
+			loader: async () => (await import('./de/context.json')).default
 		}
 	]
 };

@@ -4,7 +4,7 @@
 
 	export let data: PageData;
 
-	const questions = data.questions;
+	const questions = data.questions ?? []; // Bof bof
 
 	let answers = new Array(questions.length).fill(null);
 	let questionPointer = 0;

@@ -8,6 +8,7 @@ declare namespace Lucia {
 		username: string;
 		score: number;
 		locale: string;
+		zwt0: number;
 		zwt1: number;
 		zwt2: number;
 		zwt3: number;
@@ -19,7 +20,6 @@ declare namespace Lucia {
 		zwt9: number;
 		zwt10: number;
 		zwt11: number;
-		zwt12: number;
 	};
 }
 

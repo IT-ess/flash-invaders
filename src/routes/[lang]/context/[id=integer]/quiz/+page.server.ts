@@ -5,7 +5,7 @@ import { api } from '$lib/server/api';
 import { auth } from '$lib/server/lucia';
 
 export const load: PageServerLoad = async ({ locals, params }) => {
-	if (+params.id > 12) {
+	if (+params.id > 11) {
 		// should be ok since the matcher is restrictive
 		throw redirect(307, `/${params.lang}/home`);
 	}
@@ -13,7 +13,18 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 	if (user === null) {
 		throw redirect(307, `/${params.lang}/home`);
 	}
-	return { questions: await getQuizzesFromAuth(user, +params.id, params.lang) };
+	const invaderState = user[`zwt${params.id}` as keyof Lucia.UserAttributes];
+	switch (invaderState) {
+		case 0:
+			throw redirect(307, `/${params.lang}/home`);
+		case 1:
+			return { questions: await getQuizzesFromAuth(user, +params.id, params.lang) };
+		case 2:
+			return redirect(307, `/${params.lang}/context/${params.id}`);
+		default:
+			// Should not happen since the matcher only gives some numbers
+			throw redirect(307, `/${params.lang}/home`);
+	}
 };
 
 async function getQuizzesFromAuth(
