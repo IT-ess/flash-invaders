@@ -9,7 +9,9 @@ export const actions = {
 		const lat = data.get('lat');
 		const long = data.get('long');
 		const { user } = await locals.validateUser();
-		if (user === null) throw error(401, { message: 'Unauthorized' });
+		if (user === null) {
+			throw error(401, { message: 'Unauthorized' });
+		}
 		if (lat && long) {
 			const invader = await api.invadersModel.getInvaderByLocation(+lat, +long).catch((err) => {
 				throw error(500, { message: err.message });
@@ -24,13 +26,13 @@ export const actions = {
 						await auth.invalidateAllUserSessions(updatedUser.id);
 						const session = await auth.createSession(updatedUser.id);
 						locals.setSession(session);
-						return { invader: invader, state: 0 };
+						return invader;
 					}
 					case '1': {
-						return { invader: invader, state: 1 };
+						return invader;
 					}
 					case '2': {
-						return { invader: invader, state: 2 };
+						return invader;
 					}
 					default: {
 						throw error(500, { message: 'Something went wrong' });

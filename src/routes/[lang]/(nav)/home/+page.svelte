@@ -43,12 +43,12 @@
 		applyAction(result); // I should be able to get the data through the form action after this apply, but it doesn't work
 		if (result.type === 'success') {
 			invader = {
-				id: result.data?.invader.id,
-				name: result.data?.invader.name,
-				imageUrl: result.data?.invader.imageUrl,
+				id: result.data?.id,
+				name: result.data?.name,
+				imageUrl: result.data?.imageUrl,
 				location: {
-					latitude: result.data?.invader.location.latitude,
-					longitude: result.data?.invader.location.longitude
+					latitude: result.data?.location.latitude,
+					longitude: result.data?.location.longitude
 				}
 			}
 			successModal = true;
@@ -196,5 +196,3 @@
 		</div>
 	</div>
 </div>
-
-
