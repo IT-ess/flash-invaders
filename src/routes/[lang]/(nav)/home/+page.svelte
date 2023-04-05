@@ -43,12 +43,12 @@
 		applyAction(result); // I should be able to get the data through the form action after this apply, but it doesn't work
 		if (result.type === 'success') {
 			invader = {
-				id: result.data?.id,
-				name: result.data?.name,
-				imageUrl: result.data?.imageUrl,
+				id: result.data?.invader.id,
+				name: result.data?.invader.name,
+				imageUrl: result.data?.invader.imageUrl,
 				location: {
-					latitude: result.data?.location.latitude,
-					longitude: result.data?.location.longitude
+					latitude: result.data?.invader.location.latitude,
+					longitude: result.data?.invader.location.longitude
 				}
 			}
 			successModal = true;
@@ -94,8 +94,7 @@
 				</h3>
 				<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{invader.id}</h3>
 
-				<Button href="/fr/context/{invader.id}" color="red" class="mr-2">Répondre au quiz</Button>
-				<!-- <Button color='alternative'>No, cancel</Button> -->
+				<Button href="/fr/context/{invader.id}" color="red" class="mr-2">Voir le Zwietess</Button>
 			</div>
 		</Modal>
 		<Modal bind:open={failModal} size="m" autoclose>

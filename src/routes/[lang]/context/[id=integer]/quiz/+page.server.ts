@@ -57,7 +57,10 @@ export const actions = {
 		console.log(score);
 		const newScore = +score + (user?.score ?? 0);
 		console.log(newScore);
-		const updatedUser = await auth.updateUserAttributes(user?.id, { score: newScore });
+		const updatedUser = await auth.updateUserAttributes(user?.id, {
+			score: newScore,
+			[`zwt${params.id}`]: 2
+		});
 
 		await auth.invalidateAllUserSessions(updatedUser.id);
 		const session = await auth.createSession(updatedUser.id);
