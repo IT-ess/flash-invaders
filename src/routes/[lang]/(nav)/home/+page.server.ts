@@ -19,7 +19,7 @@ export const actions = {
 			if (invader !== null) {
 				const invaderState = user[`zwt${invader.id}` as keyof Lucia.UserAttributes];
 				switch (invaderState) {
-					case '0': {
+					case 0: {
 						const updatedUser = await auth.updateUserAttributes(user.id, {
 							[`zwt${invader.id}`]: 1
 						});
@@ -28,10 +28,8 @@ export const actions = {
 						locals.setSession(session);
 						return invader;
 					}
-					case '1': {
-						return invader;
-					}
-					case '2': {
+					case 1:
+					case 2: {
 						return invader;
 					}
 					default: {

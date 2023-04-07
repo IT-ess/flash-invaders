@@ -48,5 +48,7 @@
 	</div>
 	{#if !data.answered}
 	<Button href="./{$page.params.id}/quiz">Passer au Quiz</Button>
+	{:else}
+	<Button href="../gallery">Retourner à la galerie</Button>
 	{/if}
 </div>
