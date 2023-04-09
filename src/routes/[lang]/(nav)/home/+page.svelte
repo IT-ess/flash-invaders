@@ -126,11 +126,13 @@
 				{#if loading}
 					<Spinner color="yellow" size="40" />
 				{:else}
+				<div class="text-redjum">
 					<GoRadioTower />
+				</div>
 				{/if}
 			</div>
 		</div>
-		<div class="my-auto space-y-4">
+		<div class="my-auto">
 			<form method="POST" on:submit|preventDefault={handleSubmit}>
 				<Button type="submit">
 					{$t('home.button.scan')}
