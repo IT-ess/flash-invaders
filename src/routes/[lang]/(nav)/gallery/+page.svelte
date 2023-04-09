@@ -6,11 +6,12 @@
 	export let data: PageData;
 </script>
 
-<div class="space-y-5 items-center">
+<div class="space-y-5 h-screen flex flex-wrap items-center justify-center">
 	<!-- todo: need better styling -->
 	{#each data.invadersInfos as { img, alt, id }}
+	<div class="mx-4 my-2">
 		<Card {img} href="/{$page.params.lang}/context/{id}" horizontal>
-			<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+			<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
 				{$t(`common.zwt${id}.name`)}
 			</h5>
 			<!-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
@@ -18,6 +19,7 @@
 				chronological order.
 			</p> -->
 		</Card>
+	</div>
 	{/each}
 </div>
 

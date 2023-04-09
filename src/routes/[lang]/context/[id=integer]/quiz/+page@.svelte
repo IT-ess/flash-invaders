@@ -1,0 +1,92 @@
+<script lang="ts">
+	import type { PageData } from './$types';
+	import { Button, Blockquote, Progressbar } from 'flowbite-svelte';
+	import { themeColors } from '$lib/colors';
+
+	export let data: PageData;
+
+	const questions = data.questions ?? []; // Bof bof
+
+	let answers = new Array(questions.length).fill(null);
+	let questionPointer = 0;
+	function getScore(): number {
+		let score = answers.reduce((acc, val, index) => {
+			if (questions[index].correctIndex == val) {
+				return acc + 1;
+			}
+			return acc;
+		}, 0);
+		return (score / questions.length) * 100;
+	}
+</script>
+
+<div class="fixed top-0 left-0 w-screen h-screen z-0">
+	{#if !(questionPointer > answers.length - 1)}
+		<div class="w-full h-full flex flex-col pb-24">
+			<div class="my-0">  <Progressbar progress=+{(questionPointer/questions.length)*100} size="h-1.5" /></div>
+			<div class="p-12 bg-white min-h-1/4 flex-initial">
+				<Blockquote>
+					{questions[questionPointer].question}
+				</Blockquote>
+			</div>
+			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow bg-slate-400">
+				{#each questions[questionPointer].options as opt, i}
+					<Button
+						btnClass="text-center font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-6 text-m text-white focus:ring-blue-300 rounded-lg w-full {themeColors[
+							i
+						] !== undefined
+							? `bg-${themeColors[i]} hover:bg-${themeColors[i]}-light`
+							: 'bg-blue-600 text-white'}"
+						on:click={() => {
+							answers[questionPointer] = i;
+						}}
+					>
+						{opt}
+					</Button>
+				{/each}
+			</div>
+			<div class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0">
+				<Button
+					on:click={() => {
+						questionPointer++;
+					}}
+				>
+					Question suivante <svg
+						aria-hidden="true"
+						class="ml-2 -mr-1 w-5 h-5"
+						fill="currentColor"
+						viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg"
+						><path
+							fill-rule="evenodd"
+							d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+							clip-rule="evenodd"
+						/></svg
+					>
+				</Button>
+			</div>
+		</div>
+	{:else}
+		<div class="w-full h-full flex flex-col justify-center items-center">
+			<h1>Vos réponses ont été enregistrées.</h1>
+			<form method="POST" action="?/submitScoreAndReturnHome">
+				<input name="score" type="hidden" value={getScore()} />
+				<Button type="submit">
+					Retourner à l'accueil
+					<svg
+						aria-hidden="true"
+						class="ml-2 -mr-1 w-5 h-5"
+						fill="currentColor"
+						viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg"
+						><path
+							fill-rule="evenodd"
+							d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+							clip-rule="evenodd"
+						/></svg
+					>
+				</Button>
+			</form>
+		</div>
+	{/if}
+</div>

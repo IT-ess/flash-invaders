@@ -21,7 +21,7 @@
 	handleSession(page);
 </script>
 
-<div class="fixed top-0 right-0 mt-4 mr-4">
+<div class="fixed top-0 right-0 mt-4 mr-4 z-10">
 	<ButtonGroup class="space-x-px">
 		<Button
 			class="!p-2 inline-flex items-center justify-center w-10 h-10 font-medium group focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
