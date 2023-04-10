@@ -1,11 +1,14 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { Button, Blockquote, Progressbar } from 'flowbite-svelte';
-	import { themeColors } from '$lib/colors';
 
 	export let data: PageData;
 
 	const questions = data.questions ?? []; // Bof bof
+
+	const themeColorsBg = ['bg-bluejum', 'bg-yellowjum', 'bg-blackjum', 'bg-redjum'];
+	const themeColorsBgHover = ['hover:bg-bluejum-light', 'hover:bg-yellowjum-light', 'hover:bg-blackjum-light', 'hover:bg-redjum-light'];
+
 
 	let answers = new Array(questions.length).fill(null);
 	let questionPointer = 0;
@@ -28,14 +31,19 @@
 				<Blockquote>
 					{questions[questionPointer].question}
 				</Blockquote>
+				<span class="text-bluejum"></span><span class="text-redjum"
+					></span
+				><span class="text-yellowjum"></span><span
+					class="text-blackjum"></span
+				>
 			</div>
 			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow bg-slate-400">
 				{#each questions[questionPointer].options as opt, i}
 					<Button
-						btnClass="text-center font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-6 text-m text-white focus:ring-blue-300 rounded-lg w-full {themeColors[
+						btnClass="text-center font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-6 text-m text-white focus:ring-blue-300 rounded-lg w-full {themeColorsBg[
 							i
 						] !== undefined
-							? `bg-${themeColors[i]} hover:bg-${themeColors[i]}-light`
+							? themeColorsBg[i] + ' ' + themeColorsBgHover[i]
 							: 'bg-blue-600 text-white'}"
 						on:click={() => {
 							answers[questionPointer] = i;
