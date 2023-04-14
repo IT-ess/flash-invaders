@@ -1,12 +1,14 @@
 import { auth } from '$lib/server/lucia';
-import { handleHooks } from '@lucia-auth/sveltekit';
 import type { Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { redirect } from '@sveltejs/kit';
 import { notAuthRoutes } from '$lib/server/routesConfig';
 
 export const handle: Handle = sequence(
-	handleHooks(auth),
+	async ({ event, resolve }) => {
+		event.locals = auth.handleRequest(event);
+		return await resolve(event);
+	},
 	async ({ event, resolve }) => {
 		// Not for security, just to redirect to login page
 		if (

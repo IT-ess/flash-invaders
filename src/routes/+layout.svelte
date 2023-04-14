@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/stores';
-	import { handleSession } from '@lucia-auth/sveltekit/client';
 	import screenfull from 'screenfull';
 	import { ButtonGroup, Button } from 'flowbite-svelte';
 	import MdFullscreen from 'svelte-icons/md/MdFullscreen.svelte';
@@ -18,7 +17,6 @@
 		newUrl = $page.url.pathname.replace($page.params.lang, newLang);
 		document.documentElement.lang = $page.params.lang;
 	}
-	handleSession(page);
 </script>
 
 <div class="fixed top-0 right-0 mt-4 mr-4 z-10">
