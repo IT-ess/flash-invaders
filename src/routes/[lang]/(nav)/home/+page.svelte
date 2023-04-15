@@ -3,14 +3,17 @@
 	import { applyAction, deserialize } from '$app/forms';
 	import type { ActionResult } from '@sveltejs/kit';
 	import { Button, Modal, Heading, Span, Spinner } from 'flowbite-svelte';
-	import type { InvaderType } from '$lib/entities/invader';
+	import type { InvaderType } from '$lib/entities/Invader';
 	import GoRadioTower from 'svelte-icons/go/GoRadioTower.svelte';
+	import type { PageData } from './$types';
 
 	let accuracy = 0;
 	let successModal = false;
 	let failModal = false;
 	let loading = false;
 	let invader: InvaderType;
+	export let data: PageData;
+
 
 	function getCurrentLocation(): Promise<GeolocationPosition> {
 		return new Promise((resolve, reject) => {

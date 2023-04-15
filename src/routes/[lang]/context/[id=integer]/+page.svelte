@@ -5,25 +5,21 @@
 	import { page } from '$app/stores';
 	const images = [
 		{
-			id: 0,
 			name: 'Arrivée',
 			imgurl:
 				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/f95fdb92-e21e-46c8-9525-77276e37a300/public'
 		},
 		{
-			id: 1,
 			name: 'Emotions',
 			imgurl:
 				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/4795959e-115f-40f2-fdd4-af869a17f600/public'
 		},
 		{
-			id: 2,
 			name: 'Dom Mocquereau',
 			imgurl:
 				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/008f6a98-2e7b-4e75-7e50-b68e117a8900/public'
 		},
 		{
-			id: 3,
 			name: 'Coeur',
 			imgurl:
 				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/5eb0613b-274f-4694-9e96-4aac082f8200/public'
@@ -37,7 +33,7 @@
 </script>
 
 <div class="relative min-h-screen bg-gray-100">
-	<div class="sticky top-0 z-10 bg-slate-600">
+	<div class="sticky top-0 z-0 bg-slate-600">
 		<Carousel {images} {showThumbs} {showCaptions} {showIndicators} />
 	</div>
 	<div class="pt-1/3 bg-white p-4">

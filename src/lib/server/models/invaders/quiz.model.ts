@@ -1,4 +1,4 @@
-import type { QuizItem } from '$lib/entities/quiz';
+import type { QuizItem } from '$lib/entities/Quiz';
 import type { Client, Repository, Schema } from 'redis-om';
 import type { Quiz } from './quiz.entity';
 

@@ -1,7 +1,7 @@
 import type { Client, Repository, Schema } from 'redis-om';
 import type { Invader } from './invader.entity';
 import { SCAN_RADIUS } from '$env/static/private';
-import type { InvaderType } from '$lib/entities/invader';
+import type { InvaderType } from '$lib/entities/Invader';
 
 export class InvadersModel {
 	#redis: Client;

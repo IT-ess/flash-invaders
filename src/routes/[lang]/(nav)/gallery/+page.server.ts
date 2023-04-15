@@ -7,10 +7,10 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 	if (user === null) {
 		throw redirect(307, `/${params.lang}/home`);
 	}
-	return { invadersInfos: await getInvadeFromState(user) };
+	return { invadersInfos: await getInvaderFromState(user) };
 };
 
-async function getInvadeFromState(user: Lucia.UserAttributes): Promise<InvadersInfos[]> {
+async function getInvaderFromState(user: Lucia.UserAttributes): Promise<InvadersInfos[]> {
 	const invadersInfos: InvadersInfos[] = [];
 	for (let i = 0; i < 12; i++) {
 		const invaderState = user[`zwt${i}` as keyof Lucia.UserAttributes] as number;

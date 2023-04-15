@@ -1,6 +1,6 @@
 import type { Actions, PageServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
-import type { QuizItem } from '$lib/entities/quiz';
+import type { QuizItem } from '$lib/entities/Quiz';
 import { api } from '$lib/server/api';
 import { auth } from '$lib/server/lucia';
 
@@ -18,7 +18,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		case 0:
 			throw redirect(307, `/${params.lang}/home`);
 		case 1:
-			return { questions: await getQuizzesFromAuth(user, +params.id, params.lang) };
+			return { questions: await getQuizzesFromAuth(user, +params.id, params.lang), user };
 		case 2:
 			return redirect(307, `/${params.lang}/context/${params.id}`);
 		default:

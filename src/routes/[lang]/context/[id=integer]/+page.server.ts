@@ -15,9 +15,9 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		case 0:
 			throw redirect(307, `/${params.lang}/home`);
 		case 1:
-			return { answered: false };
+			return { answered: false, user };
 		case 2:
-			return { answered: true };
+			return { answered: true, user };
 		default:
 			// Should not happen since the matcher only gives some numbers
 			throw redirect(307, `/${params.lang}/home`);

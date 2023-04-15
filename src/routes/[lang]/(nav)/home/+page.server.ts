@@ -1,7 +1,16 @@
 import { api } from '$lib/server/api';
-import type { Actions } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 import { auth } from '$lib/server/lucia';
 import { fail, error } from '@sveltejs/kit';
+
+export const load: PageServerLoad = async ({ locals }) => {
+	const { user } = await locals.validateUser();
+	if (user) {
+		return {
+			user
+		};
+	}
+};
 
 export const actions = {
 	searchInvader: async ({ locals, request }) => {
