@@ -49,7 +49,8 @@
 		"@lucia-auth/adapter-prisma": "^1.0.0",
 		"@prisma/client": "4.12.0",
 		"lucia-auth": "^1.0.0",
-		"redis-om": "^0.3.6",
+		"redis": "^4.6.5",
+		"redis-om": "0.4.0-beta.3",
 		"zod": "^3.21.2"
 	}
 }

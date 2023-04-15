@@ -1,8 +1,5 @@
-import { invaderSchema } from './models/invaders/invader.entity';
-import { InvadersModel } from './models/invaders/invaders.model';
-import { quizSchema } from './models/invaders/quiz.entity';
-import { QuizModel } from './models/invaders/quiz.model';
-import { redisOMClient } from './utils/RedisOMLoader';
+import { InvadersModel } from './models/invaders.model';
+import { QuizModel } from './models/quiz.model';
 
 type MainInstance = {
 	invadersModel: InvadersModel;
@@ -10,6 +7,6 @@ type MainInstance = {
 };
 
 export const api: MainInstance = {
-	invadersModel: new InvadersModel(redisOMClient, invaderSchema),
-	quizModel: new QuizModel(redisOMClient, quizSchema)
+	invadersModel: new InvadersModel(),
+	quizModel: new QuizModel()
 };

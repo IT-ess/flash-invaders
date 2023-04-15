@@ -543,14 +543,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redis/client@npm:1.5.5":
-  version: 1.5.5
-  resolution: "@redis/client@npm:1.5.5"
+"@redis/client@npm:1.5.6":
+  version: 1.5.6
+  resolution: "@redis/client@npm:1.5.6"
   dependencies:
     cluster-key-slot: 1.1.2
     generic-pool: 3.9.0
     yallist: 4.0.0
-  checksum: 16ae814ea1eb28cb7f30d4fda1aa3b0ab81de515e5c23e54092ecfaded3a30f261d5b2171eb63f153f059b69e885c5d86d802368b52c741eca443885d14c4b79
+  checksum: df03f77d43e95fa4016b0c434cbdbc1822d2f30b2bfba1b046f7f4d0a6ee9ad15f350e56d6f8030b82b47e1cfa1444e7c43d659e27777ac8b66a1d95e6707f6b
   languageName: node
   linkType: hard
 
@@ -572,12 +572,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redis/search@npm:1.1.1":
-  version: 1.1.1
-  resolution: "@redis/search@npm:1.1.1"
+"@redis/search@npm:1.1.2":
+  version: 1.1.2
+  resolution: "@redis/search@npm:1.1.2"
   peerDependencies:
     "@redis/client": ^1.0.0
-  checksum: 5c574679e803530d0b1a704eb7c22292849e0a36dfc9a84a5359051f9da6e0dab72e11ade5654a69d9984bb45d2f7cdf901111135247670824013145cf28d326
+  checksum: fc3c0bd62c150ea7f8b3f08b0e67893b4e8df71b4820d750de6ba00ccff3720fdc5d4f50618e385c9e183c784635185e2e98a3e6c3d20ac30f2c60996f38b992
   languageName: node
   linkType: hard
 
@@ -2088,7 +2088,8 @@ __metadata:
     prettier: ^2.8.4
     prettier-plugin-svelte: ^2.9.0
     prisma: 4.12.0
-    redis-om: ^0.3.6
+    redis: ^4.6.5
+    redis-om: 0.4.0-beta.3
     screenfull: 5.2.0
     svelte: ^3.57.0
     svelte-check: ^3.1.4
@@ -2619,6 +2620,20 @@ __metadata:
   version: 3.2.0
   resolution: "jsonc-parser@npm:3.2.0"
   checksum: 946dd9a5f326b745aa326d48a7257e3f4a4b62c5e98ec8e49fa2bdd8d96cef7e6febf1399f5c7016114fd1f68a1c62c6138826d5d90bc650448e3cf0951c53c7
+  languageName: node
+  linkType: hard
+
+"jsonpath-plus@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "jsonpath-plus@npm:7.2.0"
+  checksum: 05f447339d29be861e307d6e812aec1b9b88a3ba6bba286966a4e8bed3e752bee3d715eabfc21dce968be85ccb48bf79d2c1af78da7b9b74cd1b446d4d5d02f5
+  languageName: node
+  linkType: hard
+
+"just-clone@npm:^6.1.1":
+  version: 6.2.0
+  resolution: "just-clone@npm:6.2.0"
+  checksum: 2c3353e3524aba8adae499973d9b8663eed3a647c73fd60149ac8a10031353e82ff1941820b56c96d12263424f50e564c7dd1fd330cf6de630455909810e13a6
   languageName: node
   linkType: hard
 
@@ -3467,27 +3482,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redis-om@npm:^0.3.6":
-  version: 0.3.6
-  resolution: "redis-om@npm:0.3.6"
+"redis-om@npm:0.4.0-beta.3":
+  version: 0.4.0-beta.3
+  resolution: "redis-om@npm:0.4.0-beta.3"
   dependencies:
-    redis: ^4.0.4
+    jsonpath-plus: ^7.2.0
+    just-clone: ^6.1.1
+    redis: ^4.6.4
     ulid: ^2.3.0
-  checksum: 035053894f9226bb1e4a01371fbdc82fa50fadf63bb4f2d3f23d7979f21aefee7e9de0c67cdbf6c343a47dd3ed939aa69fb798e3eb8081f9a5455f0639f3729e
+  checksum: 5ce76826278c2d5cd884531a64f93d8c66f4eaf8006981dbc5d9b017707ce018c55fc34c700d02e28c763ff86a4a4876133c8a4211a101a31563f482753a1e47
   languageName: node
   linkType: hard
 
-"redis@npm:^4.0.4":
-  version: 4.6.4
-  resolution: "redis@npm:4.6.4"
+"redis@npm:^4.6.4, redis@npm:^4.6.5":
+  version: 4.6.5
+  resolution: "redis@npm:4.6.5"
   dependencies:
     "@redis/bloom": 1.2.0
-    "@redis/client": 1.5.5
+    "@redis/client": 1.5.6
     "@redis/graph": 1.1.0
     "@redis/json": 1.0.4
-    "@redis/search": 1.1.1
+    "@redis/search": 1.1.2
     "@redis/time-series": 1.0.4
-  checksum: b9263985de512a381d419b471bf040989dda80df070d7f548669e6c241a33ca789273ed7834a74e2408b610bb20089ab210fe4493415cf269b8549a29824ccb2
+  checksum: 81696673a4c3acefcde310289ac83f40fe974af76f6d2f2a682befd6486128f8870f48b9e6fee1213cecfba9ac705649d27b750e853809d734cccce05868f1b7
   languageName: node
   linkType: hard
 

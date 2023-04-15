@@ -12,7 +12,6 @@
 	let failModal = false;
 	let loading = false;
 	let invader: InvaderType;
-	export let data: PageData;
 
 
 	function getCurrentLocation(): Promise<GeolocationPosition> {

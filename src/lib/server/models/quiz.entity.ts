@@ -1,8 +1,6 @@
-import { Entity, Schema } from 'redis-om';
+import { Schema } from 'redis-om';
 
-export class Quiz extends Entity {}
-
-export const quizSchema = new Schema(Quiz, {
+export const quizSchema = new Schema('Quiz', {
 	question1: { type: 'string' },
 	options1: { type: 'string[]' },
 	index1: { type: 'number' },
