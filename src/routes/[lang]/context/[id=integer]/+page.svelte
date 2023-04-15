@@ -3,33 +3,12 @@
 	import { Carousel, Heading, P, Button } from 'flowbite-svelte';
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
-	const images = [
-		{
-			name: 'Arrivée',
-			imgurl:
-				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/f95fdb92-e21e-46c8-9525-77276e37a300/public'
-		},
-		{
-			name: 'Emotions',
-			imgurl:
-				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/4795959e-115f-40f2-fdd4-af869a17f600/public'
-		},
-		{
-			name: 'Dom Mocquereau',
-			imgurl:
-				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/008f6a98-2e7b-4e75-7e50-b68e117a8900/public'
-		},
-		{
-			name: 'Coeur',
-			imgurl:
-				'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/5eb0613b-274f-4694-9e96-4aac082f8200/public'
-		}
-	];
 
 	let showThumbs = false;
 	let showCaptions = false;
 	let showIndicators = false;
 	export let data: PageData;
+	const images = data.context.carousel;
 </script>
 
 <div class="relative min-h-screen bg-gray-100">
