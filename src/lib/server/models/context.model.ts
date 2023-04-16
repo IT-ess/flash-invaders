@@ -13,19 +13,18 @@ export class ContextModel {
 
 	async getContextFromId(id: number): Promise<ContextType> {
 		const context = (await this.#repository.fetch(`${id}`)).toJSON();
+		let carouselItems: CarouselItem[] = [];
 		for (let i = 0; i < context.carouselCaptions.length; i++) {
-			let carouselItems: CarouselItem[] = [];
 			carouselItems.push({
 				// not really safe ...
-				caption: context.carouselCaptions[i],
+				name: context.carouselCaptions[i],
 				imgurl: context.carouselUrls[i]
 			});
-			return {
-				id: +context.entityId,
-				name: context.name,
-				carousel: carouselItems
-			};
 		}
-		throw new Error('Context not found');
+		return {
+			id: +context.entityId,
+			name: context.name,
+			carousel: carouselItems
+		};
 	}
 }

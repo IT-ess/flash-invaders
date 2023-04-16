@@ -2,18 +2,18 @@
 	import { t } from '$lib/translations/translations';
 	import type { ActionData } from './$types';
 	import { enhance } from '$app/forms';
-	import { Label, Input, Button } from 'flowbite-svelte';
+	import { Label, Input, Button, Heading } from 'flowbite-svelte';
 	import { page } from '$app/stores';
 	export let form: ActionData;
 </script>
 
 <form method="POST" use:enhance>
 	{#if form?.error}
-		<p>Error Message: {form?.message}</p>
-		<p>Invalid Field: {form?.invalidField}</p>
+		<p>Erreur: {form?.message}</p>
+		<p>Champ invalide: {form?.invalidField}</p>
 	{/if}
 
-	<h2>Register</h2>
+	<Heading tag="h1">{$t('auth.register')}</Heading>
 	<div class="mb6">
 		<Label for="firstname" class="block mb-2">{$t('auth.firstname.label')}</Label>
 		<Input type="text" id="firstname" name="firstname" placeholder={$t('auth.firstname.placeholder')} required>

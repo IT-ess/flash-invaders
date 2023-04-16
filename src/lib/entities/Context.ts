@@ -11,6 +11,6 @@ export type ContextType = {
 // };
 
 export type CarouselItem = {
-	caption: string;
+	name: string;
 	imgurl: string;
 };
