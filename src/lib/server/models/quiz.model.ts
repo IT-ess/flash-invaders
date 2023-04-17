@@ -11,8 +11,9 @@ export class QuizModel {
 		this.#repository = this.#redis.fetchRepository(quizSchema);
 	}
 
-	async getQuizsFromId(id: number): Promise<QuizItem[]> {
-		const quizzes = (await this.#repository.fetch(`${id}`)).toJSON(); // retrived properties can be null if no invader is found
+	async getQuizsFromId(id: string): Promise<QuizItem[]> {
+		// the id is made of the language and the invader id
+		const quizzes = (await this.#repository.fetch(id)).toJSON(); // retrived properties can be null if no invader is found
 		return [
 			{
 				question: quizzes.question1,

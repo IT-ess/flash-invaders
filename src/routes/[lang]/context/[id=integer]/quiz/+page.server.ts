@@ -36,10 +36,10 @@ async function getQuizzesFromAuth(
 	if (!invaderState) {
 		throw redirect(307, `/${lang}/home`);
 	}
-	return getQuizsFromId(id);
+	return getQuizsFromId(`${lang.toUpperCase()}${id}`);
 }
 
-async function getQuizsFromId(id: number): Promise<QuizItem[]> {
+async function getQuizsFromId(id: string): Promise<QuizItem[]> {
 	return api.quizModel.getQuizsFromId(id);
 }
 

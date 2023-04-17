@@ -92,13 +92,11 @@
 				</h2>
 				<img src={invader.imageUrl} alt="invaderthumbnail" />
 				<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{invader.name}</h3>
-				<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+				<h4 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
 					lat :{invader.location.latitude}
 					long: {invader.location.longitude}
 					acc: {accuracy}
-				</h3>
-				<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{invader.id}</h3>
-
+				</h4>
 				<Button href="/fr/context/{invader.id}" color="red" class="mr-2">Voir le Zwietess</Button>
 			</div>
 		</Modal>
@@ -127,7 +125,7 @@
 		<div class="flex-auto bg-gray-200 w-full mb-6">
 			<div class="my-10">
 				{#if loading}
-					<Spinner color="yellow" size="40" />
+					<Spinner color="yellow" size="30" />
 				{:else}
 				<div class="text-redjum">
 					<GoRadioTower />
