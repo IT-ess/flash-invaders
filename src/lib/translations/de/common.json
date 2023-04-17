@@ -37,5 +37,10 @@
     },
     "zwt100": {
         "name": "?"
+    },
+    "nav": {
+        "gallery": "Galerie",
+        "search": "Rechercher un Zwietess",
+        "map": "Carte"
     }
 }

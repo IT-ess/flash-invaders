@@ -1,7 +1,13 @@
 {
-    "content":"je suis un test de contenu",
     "button": {
-        "scan": "Chercher un zwietess",
-        "map": "Carte des zwietess"
+        "scan": "Chercher un Zwietess"
+    },
+    "fail_modal": {
+        "message": "Rien dans les parages...",
+        "button": "Retour"
+    },
+    "success_modal": {
+        "message": "Vous avez trouvé un Zwietess !",
+        "button": "Voir le Zwietess"
     }
 }

@@ -27,6 +27,18 @@ const config: Config = {
 			loader: async () => (await import('./fr/context.json')).default
 		},
 		{
+			locale: 'fr',
+			key: 'quiz',
+			// routes: [/\/fr\/context\/\d+\/quiz/],
+			loader: async () => (await import('./fr/quiz.json')).default
+		},
+		{
+			locale: 'fr',
+			key: 'tutorial',
+			routes: ['/fr/tutorial'],
+			loader: async () => (await import('./fr/tutorial.json')).default
+		},
+		{
 			locale: 'de',
 			key: 'common',
 			loader: async () => (await import('./de/common.json')).default
@@ -48,6 +60,18 @@ const config: Config = {
 			key: 'context',
 			routes: [/\/de\/context\/\d+/],
 			loader: async () => (await import('./de/context.json')).default
+		},
+		{
+			locale: 'de',
+			key: 'quiz',
+			// routes: [/\/de\/context\/\d+\/quiz/],
+			loader: async () => (await import('./de/quiz.json')).default
+		},
+		{
+			locale: 'de',
+			key: 'tutorial',
+			routes: ['/de/tutorial'],
+			loader: async () => (await import('./de/tutorial.json')).default
 		}
 	]
 };

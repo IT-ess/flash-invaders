@@ -5,7 +5,7 @@
 	import { Button, Modal, Heading, Span, Spinner } from 'flowbite-svelte';
 	import type { InvaderType } from '$lib/entities/Invader';
 	import GoRadioTower from 'svelte-icons/go/GoRadioTower.svelte';
-	import type { PageData } from './$types';
+	// import type { PageData } from './$types';
 
 	let accuracy = 0;
 	let successModal = false;
@@ -70,7 +70,7 @@
 	<div
 		class="flex flex-col h-screen w-screen justify-center items-center font-sans text-center pb-24"
 	>
-		<Heading tag="h1" color="primary" class="m-5"><Span gradient>zwietess</Span></Heading>
+		<Heading tag="h1" color="primary" class="m-5"><Span>ZWIETESS</Span></Heading>
 		<Modal bind:open={successModal} size="m" autoclose>
 			<div class="text-center">
 				<svg
@@ -88,7 +88,7 @@
 					/></svg
 				>
 				<h2 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-					Vous avez trouvé un Zwietess !
+					{$t('home.success_modal.message')}
 				</h2>
 				<img src={invader.imageUrl} alt="invaderthumbnail" />
 				<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{invader.name}</h3>
@@ -97,7 +97,7 @@
 					long: {invader.location.longitude}
 					acc: {accuracy}
 				</h4>
-				<Button href="/fr/context/{invader.id}" color="red" class="mr-2">Voir le Zwietess</Button>
+				<Button href="/fr/context/{invader.id}" color="red" class="mr-2">{$t('home.success_modal.button')}</Button>
 			</div>
 		</Modal>
 		<Modal bind:open={failModal} size="m" autoclose>
@@ -117,9 +117,9 @@
 					/></svg
 				>
 				<h2 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-					Rien dans les parages...
+					{$t('home.fail_modal.message')}
 				</h2>
-				<Button color="alternative">Retour</Button>
+				<Button color="alternative">{$t('home.fail_modal.button')}</Button>
 			</div>
 		</Modal>
 		<div class="flex-auto bg-gray-200 w-full mb-6">

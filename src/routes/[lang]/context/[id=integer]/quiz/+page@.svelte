@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { t } from '$lib/translations/translations';
+
 	import type { PageData } from './$types';
 	import { Button, Blockquote, Progressbar } from 'flowbite-svelte';
 
@@ -7,8 +9,12 @@
 	const questions = data.questions ?? []; // Bof bof
 
 	const themeColorsBg = ['bg-bluejum', 'bg-yellowjum', 'bg-blackjum', 'bg-redjum'];
-	const themeColorsBgHover = ['hover:bg-bluejum-light', 'hover:bg-yellowjum-light', 'hover:bg-blackjum-light', 'hover:bg-redjum-light'];
-
+	const themeColorsBgHover = [
+		'hover:bg-bluejum-light',
+		'hover:bg-yellowjum-light',
+		'hover:bg-blackjum-light',
+		'hover:bg-redjum-light'
+	];
 
 	let answers = new Array(questions.length).fill(null);
 	let questionPointer = 0;
@@ -26,16 +32,16 @@
 <div class="fixed top-0 left-0 w-screen h-screen z-0">
 	{#if !(questionPointer > answers.length - 1)}
 		<div class="w-full h-full flex flex-col pb-24">
-			<div class="my-0">  <Progressbar progress=+{(questionPointer/questions.length)*100} size="h-1.5" /></div>
+			<div class="my-0">
+				<Progressbar progress="+{(questionPointer / questions.length) * 100}" size="h-1.5" />
+			</div>
 			<div class="p-12 bg-white min-h-1/4 flex-initial">
 				<Blockquote>
 					{questions[questionPointer].question}
 				</Blockquote>
-				<span class="text-bluejum"></span><span class="text-redjum"
-					></span
-				><span class="text-yellowjum"></span><span
-					class="text-blackjum"></span
-				>
+				<span class="text-bluejum" /><span class="text-redjum" /><span
+					class="text-yellowjum"
+				/><span class="text-blackjum" />
 			</div>
 			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow bg-slate-400">
 				{#each questions[questionPointer].options as opt, i}
@@ -59,7 +65,8 @@
 						questionPointer++;
 					}}
 				>
-					Question suivante <svg
+					{$t('quiz.next')}
+					<svg
 						aria-hidden="true"
 						class="ml-2 -mr-1 w-5 h-5"
 						fill="currentColor"
@@ -76,11 +83,11 @@
 		</div>
 	{:else}
 		<div class="w-full h-full flex flex-col justify-center items-center">
-			<h1>Vos réponses ont été enregistrées.</h1>
+			<h1>{$t('quiz.submitted')}</h1>
 			<form method="POST" action="?/submitScoreAndReturnHome">
 				<input name="score" type="hidden" value={getScore()} />
 				<Button type="submit">
-					Retourner à l'accueil
+					{$t('auth.home')}
 					<svg
 						aria-hidden="true"
 						class="ml-2 -mr-1 w-5 h-5"

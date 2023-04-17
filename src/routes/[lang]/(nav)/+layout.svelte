@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/translations/translations';
 	import { BottomNav, BottomNavItem, Tooltip } from 'flowbite-svelte';
 	import IoIosRadio from 'svelte-icons/io/IoIosRadio.svelte';
 	import FaRegImages from 'svelte-icons/fa/FaRegImages.svelte';
@@ -14,7 +15,7 @@
 		<div class="w-6 h-6 mb-1 text-gray-500 group-hover:text-blue-600">
 			<a href="./gallery"> <FaRegImages /> </a>
 		</div>
-		<Tooltip arrow={false}>Galerie</Tooltip>
+		<Tooltip arrow={false}>{$t('common.nav.gallery')}</Tooltip>
 	</BottomNavItem>
 	<div class="flex items-center justify-center">
 		<BottomNavItem
@@ -25,13 +26,13 @@
 			<div class="w-6 h-6 text-white">
 				<a href="./home"><IoIosRadio /></a>
 			</div>
-			<Tooltip arrow={false}>Chercher un Zwietess</Tooltip>
+			<Tooltip arrow={false}>{$t('common.nav.search')}</Tooltip>
 		</BottomNavItem>
 	</div>
 	<BottomNavItem btnName="Map" appBtnPosition="right">
 		<div class="w-6 h-6 mb-1 text-gray-500 group-hover:text-blue-600">
 			<a href="./map"> <FaMapMarkedAlt /> </a>
 		</div>
-		<Tooltip arrow={false}>Map</Tooltip>
+		<Tooltip arrow={false}>{$t('common.nav.map')}</Tooltip>
 	</BottomNavItem>
 </BottomNav>

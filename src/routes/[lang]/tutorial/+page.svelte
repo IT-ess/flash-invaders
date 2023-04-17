@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/translations/translations';
 	import { AccordionItem, Accordion, Button, Blockquote } from 'flowbite-svelte';
 	import { page } from '$app/stores';
 	import GoRadioTower from 'svelte-icons/go/GoRadioTower.svelte';
@@ -8,11 +9,12 @@
 	<div class="flex flex-col grow w-screen justify-center items-center font-sans text-center">
 		<div class="p-12 bg-white min-h-1/4 flex-initial">
 			<Blockquote
-				><span class="text-bluejum">Bienvenue à la grande chasse aux </span><span class="text-redjum"
-					>Zwietess ! </span
-				><span class="text-yellowjum">Vous trouverez ci-après plusieurs éléments des </span><span
-					class="text-blackjum">règles du jeu...</span
-				>
+				><span class="text-bluejum">Bienvenue à la grande chasse aux </span><span
+					class="text-redjum"
+					>Zwietess !
+				</span><span class="text-yellowjum"
+					>Vous trouverez ci-après plusieurs éléments des
+				</span><span class="text-blackjum">règles du jeu...</span>
 			</Blockquote>
 		</div>
 
@@ -20,10 +22,10 @@
 			<AccordionItem>
 				<span slot="header" class="text-base flex gap-2 text-redjum w-fit">
 					<div class="w-6 h-6"><GoRadioTower /></div>
-					<span class="mr-5">Fonctionnement</span>
+					<span class="mr-5">{$t(`tutorial.sec1.heading`)}</span>
 				</span>
 				<p class="mb-2 text-gray-500 dark:text-gray-400">
-					Ce jeu fonctionne grâce à votre localisation.
+					{$t(`tutorial.sec1.content`)}
 				</p>
 			</AccordionItem>
 			<AccordionItem>

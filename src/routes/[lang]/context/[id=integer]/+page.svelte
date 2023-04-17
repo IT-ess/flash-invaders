@@ -28,11 +28,11 @@
 	</div>
 	{#if !data.answered}
 		<div class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0">
-			<Button href="./{$page.params.id}/quiz">Passer au Quiz</Button>
+			<Button href="./{$page.params.id}/quiz">{$t(`context.quiz`)}</Button>
 		</div>
 	{:else}
 		<div class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0">
-			<Button href="../gallery">Retourner à la galerie</Button>
+			<Button href="../gallery">{$t(`context.gallery`)}</Button>
 		</div>
 	{/if}
 </div>

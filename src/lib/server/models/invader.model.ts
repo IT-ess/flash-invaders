@@ -35,21 +35,17 @@ export class InvadersModel {
 		}
 	}
 
-	async getInvaderById(id: number): Promise<InvaderType | null> {
-		const invader = await this.#repository.fetch(`${id}`);
-		if (invader !== null) {
-			const json = invader.toJSON();
-			return {
-				id: +json.entityId,
-				name: json.name,
-				location: {
-					longitude: json.location.longitude,
-					latitude: json.location.latitude
-				},
-				imageUrl: json.imageUrl
-			};
-		} else {
-			return null;
-		}
+	async getInvaderById(id: number): Promise<InvaderType> {
+		const invader = await this.#repository.fetch(`${id}`); // always defined, only params are undefined if not found
+		const json = invader.toJSON();
+		return {
+			id: +json.entityId,
+			name: json.name ?? '??',
+			location: {
+				longitude: json.location.longitude ?? 0,
+				latitude: json.location.latitude ?? 0
+			},
+			imageUrl: json.imageUrl ?? ''
+		};
 	}
 }

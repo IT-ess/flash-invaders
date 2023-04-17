@@ -45,6 +45,6 @@
 		</Input>
 		<input name="locale" type="hidden" value={$page.params.lang} />
 		
-		<Button gradient color="purpleToBlue" type="submit">S'enregistrer /</Button>
+		<Button gradient color="purpleToBlue" type="submit">{$t('auth.register')}</Button>
 	</div>
 </form>

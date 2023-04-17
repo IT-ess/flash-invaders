@@ -16,20 +16,11 @@ async function getInvaderFromState(user: Lucia.UserAttributes): Promise<Invaders
 		const invaderState = user[`zwt${i}` as keyof Lucia.UserAttributes] as number;
 		if (invaderState > 0) {
 			const invader = await api.invadersModel.getInvaderById(i);
-			if (invader === null) {
-				invadersInfos.push({
-					id: 100,
-					alt: 'placeholder',
-					img: 'https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/59e8fbad-4fe0-422b-7fa3-ee5c31830400/public'
-				});
-			} // TODO : better handle of errors or not found invader
-			else {
-				invadersInfos.push({
-					id: i,
-					alt: invader?.name,
-					img: invader?.imageUrl
-				});
-			}
+			invadersInfos.push({
+				id: invader.id,
+				alt: invader.name,
+				img: invader.imageUrl
+			});
 		} else {
 			invadersInfos.push({
 				id: 100,
