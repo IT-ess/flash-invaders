@@ -17,12 +17,11 @@
 	</div>
 	<div class="bg-white pt-4 pb-24 px-8 flex-grow flex flex-col">
 		<div class="pb-4">
-			<Heading tag="h1">{$t(`context.zwt${$page.params.id}.title`)}</Heading>
+			<Heading tag="h1">{$t(`common.zwt${$page.params.id}.name`)}</Heading>
 		</div>
 		<div class="overflow-y-scroll pr-2 flex-grow">
 			<P size="xl" justify>
 				{$t(`context.zwt${$page.params.id}.content`)}
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero doloribus dolorem quod nam quidem ipsam iure eveniet asperiores vero a dignissimos ut consequatur corporis odit molestias, explicabo modi ea laudantium.
 			</P>
 		</div>
 	</div>

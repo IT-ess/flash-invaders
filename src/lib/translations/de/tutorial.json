@@ -1,6 +1,19 @@
 {
-    "sec1": {
-        "heading": "Fonctionnement",
-        "content": "Ce jeu fonctionne grâce à votre localisation."
+    "register": "Ich melde mich an ! 🇩🇪",
+	"sec1": {
+		"heading": "Funktionsweise",
+		"content": "Dieses Spiel funktioniert dank Ihrer Standortbestimmung. Sie müssen sich also in der Nähe (~max. 5m) des Zwietess befinden, um ihn \"einzufangen\". Außerdem müssen Sie den Zugriff auf Ihren Standort erlauben, damit die Anwendung ordnungsgemäß funktioniert."
+	},
+    "sec2": {
+        "heading": "Navigation",
+        "content": "Sie haben oben auf jeder Seite einen Button, um in den Vollbildmodus zu wechseln, sowie einen Button, um jederzeit die Sprache zu ändern. Ihre Standardsprache wird bei der Anmeldung festgelegt."
+    },
+    "sec3": {
+        "heading": "Internetbrowser",
+        "content": "Aus technischen Gründen verwenden Sie bitte nur die Browser Chrome oder Firefox, um das Spiel zu spielen (kein Safari...)."
+    },
+    "sec4": {
+        "heading": "Regeln",
+        "content": "Die Punkte werden von Samstag, dem 20. Mai, 15 Uhr, bis Sonntag, dem 21. Mai, 18 Uhr, gezählt. Sie dürfen sich nur einmal anmelden, andernfalls werden Sie disqualifiziert."
     }
 }

@@ -1,6 +1,19 @@
 {
-    "sec1": {
-        "heading": "Fonctionnement",
-        "content": "Ce jeu fonctionne grâce à votre localisation."
+    "register": "Je m'enregistre ! 🇫🇷",
+	"sec1": {
+		"heading": "Fonctionnement",
+		"content": "Ce jeu fonctionne grâce à votre localisation, il faut donc vous trouver à proximité (~5m max) du Zwietess pour pouvoir \"l'attraper\". De plus, pour le bon fonctionnement de l'application, il faut que vous autorisiez l'accès à votre localisation."
+	},
+    "sec2": {
+        "heading": "Navigation",
+        "content": "Vous avez en haut de chaque page un bouton pour passer en mode plein écran, ainsi qu'un bouton pour changer de langue à tout moment. Votre langue par défaut est définie au moment de votre inscription."
+    },
+    "sec3": {
+        "heading": "Navigateur internet",
+        "content": "Pour des raisons techniques, merci de n'utiliser que les navigateurs Chrome ou Firefox pour jouer au jeu (pas de Safari...)."
+    },
+    "sec4": {
+        "heading": "Règles",
+        "content": "Les points sont comptabilisés du samedi 20 mai 15h jusqu'au dimanche 21 mai 18h. Vous n'avez le droit qu'à une seule inscription sans quoi vous serez disqualifié."
     }
 }

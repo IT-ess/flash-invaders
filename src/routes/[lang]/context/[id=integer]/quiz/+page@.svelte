@@ -87,7 +87,7 @@
 			<form method="POST" action="?/submitScoreAndReturnHome">
 				<input name="score" type="hidden" value={getScore()} />
 				<Button type="submit">
-					{$t('auth.home')}
+					{$t('quiz.home')}
 					<svg
 						aria-hidden="true"
 						class="ml-2 -mr-1 w-5 h-5"

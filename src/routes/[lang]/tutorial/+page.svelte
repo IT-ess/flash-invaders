@@ -3,6 +3,9 @@
 	import { AccordionItem, Accordion, Button, Blockquote } from 'flowbite-svelte';
 	import { page } from '$app/stores';
 	import GoRadioTower from 'svelte-icons/go/GoRadioTower.svelte';
+	import GoBrowser from 'svelte-icons/go/GoBrowser.svelte'
+	import GoBook from 'svelte-icons/go/GoBook.svelte'
+	import GoArrowBoth from 'svelte-icons/go/GoArrowBoth.svelte'
 </script>
 
 <div class="h-screen overflow-hidden">
@@ -18,9 +21,9 @@
 			</Blockquote>
 		</div>
 
-		<Accordion class="my-7 w-11/12 mx-2">
+		<Accordion class="my-6 w-11/12 mx-2">
 			<AccordionItem>
-				<span slot="header" class="text-base flex gap-2 text-redjum w-fit">
+				<span slot="header" class="text-base flex gap-2 w-fit">
 					<div class="w-6 h-6"><GoRadioTower /></div>
 					<span class="mr-5">{$t(`tutorial.sec1.heading`)}</span>
 				</span>
@@ -29,20 +32,37 @@
 				</p>
 			</AccordionItem>
 			<AccordionItem>
-				<span slot="header" class="text-base flex gap-2">
-					<div class="w-6 h-6"><GoRadioTower /></div>
-					<span class="mr-5">Navigation</span>
+				<span slot="header" class="text-base flex gap-2 w-fit">
+					<div class="w-6 h-6"><GoArrowBoth /></div>
+					<span class="mr-5">{$t(`tutorial.sec2.heading`)}</span>
 				</span>
 				<p class="mb-2 text-gray-500 dark:text-gray-400">
-					Vous avez en haut de chaque page un bouton pour passer en mode plein écran, ainsi qu'un
-					bouton pour changer de langue à tout moment.
+					{$t(`tutorial.sec2.content`)}
+				</p>
+			</AccordionItem>
+			<AccordionItem>
+				<span slot="header" class="text-base flex gap-2 w-fit">
+					<div class="w-6 h-6"><GoBrowser/></div>
+					<span class="mr-5">{$t(`tutorial.sec3.heading`)}</span>
+				</span>
+				<p class="mb-2 text-gray-500 dark:text-gray-400">
+					{$t(`tutorial.sec3.content`)}
+				</p>
+			</AccordionItem>
+			<AccordionItem>
+				<span slot="header" class="text-base flex gap-2 w-fit">
+					<div class="w-6 h-6"><GoBook/></div>
+					<span class="mr-5">{$t(`tutorial.sec4.heading`)}</span>
+				</span>
+				<p class="mb-2 text-gray-500 dark:text-gray-400">
+					{$t(`tutorial.sec4.content`)}
 				</p>
 			</AccordionItem>
 		</Accordion>
 	</div>
 	<div class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0">
 		<Button href="/{$page.params.lang}/auth/register">
-			Je m'enregistre ! 🇫🇷 <svg
+			{$t("tutorial.register")} <svg
 				aria-hidden="true"
 				class="ml-2 -mr-1 w-5 h-5"
 				fill="currentColor"

@@ -1,13 +1,13 @@
 {
     "button": {
-        "scan": "Scannen ein Zwietess"
+        "scan": "Ein Zwietess suchen"
     },
     "fail_modal": {
-        "message": "Rien dans les parages...",
-        "button": "Retour"
+        "message": "Nichts in der Nähe...",
+        "button": "Zurück"
     },
     "success_modal": {
-        "message": "Vous avez trouvé un Zwietess !",
-        "button": "Voir le Zwietess"
+        "message": "Sie haben einen Zwietess gefunden!",
+        "button": "Zwietess anzeigen"
     }
 }
