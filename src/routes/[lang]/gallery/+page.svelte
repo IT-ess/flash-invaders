@@ -7,7 +7,7 @@
 	const themeColorsText = ['text-bluejum', 'text-yellowjum', 'text-blackjum', 'text-redjum'];
 </script>
 
-<div class="space-y-5 h-screen flex flex-wrap items-center justify-center">
+<div class="space-y-5 flex flex-wrap items-center justify-center">
 	<!-- todo: need better styling -->
 	{#each data.invadersInfos as { img, alt, id }, i}
 		<div class="mx-4 my-2">

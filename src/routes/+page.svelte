@@ -5,8 +5,7 @@
 </script>
 
 <div class="flex flex-col h-screen justify-center items-center font-sans text-center">
-	<Heading tag="h1" color="primary" class="m-5"><Span gradient>zwietess</Span></Heading>
-
+	<Heading tag="h1" color="primary" class="m-4" customSize="text-3xl"><Span>zwietess</Span></Heading>
 	<div class="flex-1 bg-gray-200 w-full">
 		<!-- <img src="/logo_jumelage.png" alt="Jumelage logo" /> -->
 		<img

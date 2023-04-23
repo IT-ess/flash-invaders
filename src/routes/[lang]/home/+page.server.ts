@@ -7,7 +7,9 @@ export const load: PageServerLoad = async ({ locals }) => {
 	const { user } = await locals.validateUser();
 	if (user) {
 		return {
-			user
+			user,
+			nav: true,
+			header: true
 		};
 	}
 };

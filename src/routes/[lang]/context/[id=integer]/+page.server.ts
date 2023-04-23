@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 import type { ContextType } from '$lib/entities/Context';
 import { api } from '$lib/server/api';
 
-export const load: PageServerLoad = async ({ locals, params }) => {
+export const load = (async ({ locals, params }) => {
 	if (+params.id > 11) {
 		// should be ok since the matcher is restrictive
 		throw redirect(307, `/${params.lang}/home`);
@@ -32,7 +32,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 			// Should not happen since the matcher only gives some numbers
 			throw redirect(307, `/${params.lang}/home`);
 	}
-};
+}) satisfies PageServerLoad;
 
 async function getContextFromAuth(
 	user: Lucia.UserAttributes,
