@@ -29,7 +29,7 @@ const config: Config = {
 		{
 			locale: 'fr',
 			key: 'quiz',
-			// routes: [/\/fr\/context\/\d+\/quiz/],
+			routes: [/^\/fr\/context\/([0-9]|1[01])\/quiz$/],
 			loader: async () => (await import('./fr/quiz.json')).default
 		},
 		{
@@ -64,7 +64,7 @@ const config: Config = {
 		{
 			locale: 'de',
 			key: 'quiz',
-			// routes: [/\/de\/context\/\d+\/quiz/],
+			routes: [/^\/de\/context\/([0-9]|1[01])\/quiz$/],
 			loader: async () => (await import('./de/quiz.json')).default
 		},
 		{

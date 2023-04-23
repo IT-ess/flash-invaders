@@ -15,7 +15,7 @@
 		</div>
 	{/if}
 
-	<Heading tag="h1" class="text-2xl font-bold mb-6">{$t('auth.register')}</Heading>
+	<h1 class="text-3xl font-bold mb-6">{$t('auth.register')}</h1>
 	<div class="space-y-6">
 		<div>
 			<Label for="firstname" class="block mb-2 font-semibold">{$t('auth.firstname.label')}</Label>

@@ -35,7 +35,7 @@
 			<div class="my-0">
 				<Progressbar progress="+{(questionPointer / questions.length) * 100}" size="h-1.5" />
 			</div>
-			<div class="p-12 bg-white min-h-1/4 flex-initial">
+			<div class="p-6 mt-9 bg-white min-h-1/4 flex-initial">
 				<Blockquote>
 					{questions[questionPointer].question}
 				</Blockquote>
@@ -43,7 +43,7 @@
 					class="text-yellowjum"
 				/><span class="text-blackjum" />
 			</div>
-			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow bg-slate-400">
+			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow">
 				{#each questions[questionPointer].options as opt, i}
 					<Button
 						btnClass="text-center font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-6 text-m text-white focus:ring-blue-300 rounded-lg w-full {themeColorsBg[
@@ -59,7 +59,7 @@
 					</Button>
 				{/each}
 			</div>
-			<div class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0">
+			<div class="left-0 w-full h-20 flex justify-center items-center bg-gray-200 fixed bottom-0">
 				<Button
 					on:click={() => {
 						questionPointer++;
