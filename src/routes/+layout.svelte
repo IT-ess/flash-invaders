@@ -26,8 +26,8 @@
 
 <div class="relative h-screen w-screen flex flex-col">
 	{#if $page.data.header}
-		<header class="bg-gray-300 p-4">
-			<Header>{$page.url.pathname}</Header>
+		<header class="bg-gray-300 p-4 pr-28">
+			<Header>{$t(`common.headers.${$page.url.pathname}`)}</Header>
 		</header>
 	{/if}
 	<div class="fixed top-0 right-0 mt-4 mr-4 z-10">

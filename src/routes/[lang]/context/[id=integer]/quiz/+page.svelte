@@ -18,15 +18,7 @@
 
 	let answers = new Array(questions.length).fill(null);
 	let questionPointer = 0;
-	function getScore(): number {
-		let score = answers.reduce((acc, val, index) => {
-			if (questions[index].correctIndex == val) {
-				return acc + 1;
-			}
-			return acc;
-		}, 0);
-		return (score / questions.length) * 100;
-	}
+	let score = 0
 </script>
 
 <div class="fixed top-0 left-0 w-screen h-screen z-0">
@@ -62,6 +54,9 @@
 			<div class="left-0 w-full h-20 flex justify-center items-center bg-gray-200 fixed bottom-0">
 				<Button
 					on:click={() => {
+						if (questions[questionPointer].correctIndex == answers[questionPointer]) {
+							score += 25;
+						}
 						questionPointer++;
 					}}
 				>
@@ -85,7 +80,7 @@
 		<div class="w-full h-full flex flex-col justify-center items-center">
 			<h1>{$t('quiz.submitted')}</h1>
 			<form method="POST" action="?/submitScoreAndReturnHome">
-				<input name="score" type="hidden" value={getScore()} />
+				<input name="score" type="hidden" value={score} />
 				<Button type="submit">
 					{$t('quiz.home')}
 					<svg

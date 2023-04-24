@@ -42,5 +42,10 @@
         "gallery": "Galerie",
         "search": "Rechercher un Zwietess",
         "map": "Carte"
+    },
+    "headers": {
+        "/fr/home": "Recherche",
+        "/fr/tutorial": "Tutoriel",
+        "/fr/map": "Carte"
     }
 }

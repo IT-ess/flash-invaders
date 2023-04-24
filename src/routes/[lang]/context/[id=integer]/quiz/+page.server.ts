@@ -54,9 +54,7 @@ export const actions = {
 		if (user === null) {
 			throw redirect(307, '/');
 		}
-		console.log(score);
 		const newScore = +score + (user?.score ?? 0);
-		console.log(newScore);
 		const updatedUser = await auth.updateUserAttributes(user?.id, {
 			score: newScore,
 			[`zwt${params.id}`]: 2

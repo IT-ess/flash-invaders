@@ -1,46 +1,51 @@
 {
-    "zwt0": {
-        "name": "Die Anleitung"
-    },
-    "zwt1": {
-        "name": "Die Runde"
-    },
-    "zwt2": {
-        "name": "Der Turm"
-    },
-    "zwt3": {
-        "name": "Der Frieden"
-    },
-    "zwt4": {
-        "name": "Die Reise"
-    },
-    "zwt5": {
-        "name": "Der Gesang"
-    },
-    "zwt6": {
-        "name": "Die Hockete"
-    },
-    "zwt7": {
-        "name": "Die Städtepartnerschaft"
-    },
-    "zwt8": {
-        "name": "Das Bier"
-    },
-    "zwt9": {
-        "name": "Die Kultur"
-    },
-    "zwt10": {
-        "name": "Die Emotionen"
-    },
-    "zwt11": {
-        "name": "Der Preis"
-    },
-    "zwt100": {
-        "name": "?"
-    },
-    "nav": {
-        "gallery": "Galerie",
-        "search": "Suche nach einem Zwietess",
-        "map": "Karte"
-    }
+	"zwt0": {
+		"name": "Die Anleitung"
+	},
+	"zwt1": {
+		"name": "Die Runde"
+	},
+	"zwt2": {
+		"name": "Der Turm"
+	},
+	"zwt3": {
+		"name": "Der Frieden"
+	},
+	"zwt4": {
+		"name": "Die Reise"
+	},
+	"zwt5": {
+		"name": "Der Gesang"
+	},
+	"zwt6": {
+		"name": "Die Hockete"
+	},
+	"zwt7": {
+		"name": "Die Städtepartnerschaft"
+	},
+	"zwt8": {
+		"name": "Das Bier"
+	},
+	"zwt9": {
+		"name": "Die Kultur"
+	},
+	"zwt10": {
+		"name": "Die Emotionen"
+	},
+	"zwt11": {
+		"name": "Der Preis"
+	},
+	"zwt100": {
+		"name": "?"
+	},
+	"nav": {
+		"gallery": "Galerie",
+		"search": "Suche nach einem Zwietess",
+		"map": "Karte"
+	},
+	"headers": {
+		"/de/home": "Suche",
+		"/de/tutorial": "Anleitung",
+		"/de/map": "Karte"
+	}
 }

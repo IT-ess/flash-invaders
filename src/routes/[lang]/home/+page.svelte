@@ -65,72 +65,76 @@
 	}
 </script>
 
-<div
-	class="flex flex-col justify-center items-center font-sans text-center"
->
-	<Modal bind:open={successModal} size="m" autoclose>
-		<div class="text-center">
-			<svg
-				aria-hidden="true"
-				class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-				><path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-				/></svg
-			>
-			<h2 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-				{$t('home.success_modal.message')}
-			</h2>
-			<img src={invader.imageUrl} alt="invaderthumbnail" />
-			<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{invader.name}</h3>
-			<h4 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-				lat :{invader.location.latitude}
-				long: {invader.location.longitude}
-				acc: {accuracy}
-			</h4>
-			<Button href="/fr/context/{invader.id}" color="red" class="mr-2"
-				>{$t('home.success_modal.button')}</Button
-			>
-		</div>
-	</Modal>
-	<Modal bind:open={failModal} size="m" autoclose>
-		<div class="text-center">
-			<svg
-				aria-hidden="true"
-				class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-				><path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-				/></svg
-			>
-			<h2 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-				{$t('home.fail_modal.message')}
-			</h2>
-			<Button color="alternative">{$t('home.fail_modal.button')}</Button>
-		</div>
-	</Modal>
-	<div class="flex-grow bg-gray-200 w-full mb-6">
-		<!-- <div class="my-10"> -->
-			{#if loading}
-				<Spinner color="yellow" size="20" />
-			{:else}
-				<GoRadioTower />
-			{/if}
-		<!-- </div> -->
+<div class="flex flex-col h-full w-full items-center text-center">
+	<div class="z-[100]">
+		<Modal bind:open={successModal} size="m" autoclose>
+			<div class="text-center">
+				<svg
+					aria-hidden="true"
+					class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					/></svg
+				>
+				<h2 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+					{$t('home.success_modal.message')}
+				</h2>
+				<img src={invader.imageUrl} alt="invaderthumbnail" />
+				<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{invader.name}</h3>
+				<h4 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+					lat :{invader.location.latitude}
+					long: {invader.location.longitude}
+					acc: {accuracy}
+				</h4>
+				<Button href="/fr/context/{invader.id}" color="red" class="mr-2"
+					>{$t('home.success_modal.button')}</Button
+				>
+			</div>
+		</Modal>
+		<Modal bind:open={failModal} size="m" autoclose>
+			<div class="text-center">
+				<svg
+					aria-hidden="true"
+					class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					/></svg
+				>
+				<h2 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+					{$t('home.fail_modal.message')}
+				</h2>
+				<Button color="alternative">{$t('home.fail_modal.button')}</Button>
+			</div>
+		</Modal>
 	</div>
-	<div class="bg-gray-200 p-4 w-full h-24 flex justify-center items-center">
+	
+	<div class="flex flex-grow bg-gray-200 items-center justify-evenly w-full">
+		<div class="m-auto mt-14">
+		  <div class="box-content h-44 w-44 p-4">
+			{#if loading}
+			  <Spinner color="yellow" size="40" />
+			{:else}
+			  <GoRadioTower />
+			{/if}
+		  </div>
+		</div>
+	  </div>
+	  
+	<div class="p-4 w-full h-24 flex justify-center items-center">
 		<form method="POST" on:submit|preventDefault={handleSubmit}>
 			<Button type="submit">
 				{$t('home.button.scan')}
