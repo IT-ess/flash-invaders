@@ -55,7 +55,7 @@
 				<Button
 					on:click={() => {
 						if (questions[questionPointer].correctIndex == answers[questionPointer]) {
-							score += 25;
+							score += (questionPointer + 1) * 10; // the harder are the questions, the more points you get
 						}
 						questionPointer++;
 					}}

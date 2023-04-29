@@ -2,17 +2,14 @@
 	import { t } from '$lib/translations/translations';
 	import { applyAction, deserialize } from '$app/forms';
 	import type { ActionResult } from '@sveltejs/kit';
-	import { Button, Modal, Heading, Span, Spinner } from 'flowbite-svelte';
+	import { Button, Modal, Spinner } from 'flowbite-svelte';
 	import type { InvaderType } from '$lib/entities/Invader';
 	import GoRadioTower from 'svelte-icons/go/GoRadioTower.svelte';
-	// import type { PageData } from './$types';
 
-	let accuracy = 0;
 	let successModal = false;
 	let failModal = false;
 	let loading = false;
 	let invader: InvaderType;
-	// export let data: PageData;
 
 	function getCurrentLocation(): Promise<GeolocationPosition> {
 		return new Promise((resolve, reject) => {
@@ -35,7 +32,6 @@
 	async function handleSubmit() {
 		loading = true;
 		const loc = await getCurrentLocation(); // TODO : handle error
-		accuracy = loc.coords.accuracy;
 		const data = new FormData();
 		data.append('lat', loc.coords.latitude.toString());
 		data.append('long', loc.coords.longitude.toString());
@@ -88,11 +84,6 @@
 				</h2>
 				<img src={invader.imageUrl} alt="invaderthumbnail" />
 				<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{invader.name}</h3>
-				<h4 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-					lat :{invader.location.latitude}
-					long: {invader.location.longitude}
-					acc: {accuracy}
-				</h4>
 				<Button href="/fr/context/{invader.id}" color="red" class="mr-2"
 					>{$t('home.success_modal.button')}</Button
 				>
@@ -121,19 +112,19 @@
 			</div>
 		</Modal>
 	</div>
-	
+
 	<div class="flex flex-grow bg-gray-200 items-center justify-evenly w-full">
 		<div class="m-auto mt-14">
-		  <div class="box-content h-44 w-44 p-4">
-			{#if loading}
-			  <Spinner color="yellow" size="40" />
-			{:else}
-			  <GoRadioTower />
-			{/if}
-		  </div>
+			<div class="box-content h-44 w-44 p-4">
+				{#if loading}
+					<Spinner color="yellow" size="40" />
+				{:else}
+					<GoRadioTower />
+				{/if}
+			</div>
 		</div>
-	  </div>
-	  
+	</div>
+
 	<div class="p-4 w-full h-24 flex justify-center items-center">
 		<form method="POST" on:submit|preventDefault={handleSubmit}>
 			<Button type="submit">

@@ -1,12 +1,17 @@
 {
     "register": "Ich melde mich an ! 🇩🇪",
+    "welcome": {
+        "p1": "Willkommen bei der großen Jagd nach",
+        "p2": "Unten finden Sie einige wichtige Spielregeln..."
+    },
+    "warning": "Bitte lesen Sie die Regeln, bevor Sie sich anmelden!",
 	"sec1": {
 		"heading": "Funktionsweise",
-		"content": "Dieses Spiel funktioniert dank Ihrer Standortbestimmung. Sie müssen sich also in der Nähe (~max. 5m) des Zwietess befinden, um ihn \"einzufangen\". Außerdem müssen Sie den Zugriff auf Ihren Standort erlauben, damit die Anwendung ordnungsgemäß funktioniert."
+		"content": "Dieses Spiel funktioniert dank Ihrer Standortbestimmung. Sie müssen sich also in der Nähe (~5m) des Zwietess befinden, um ihn \"einzufangen\". Außerdem müssen Sie den Zugriff auf Ihren Standort erlauben, damit die Anwendung ordnungsgemäß funktioniert."
 	},
     "sec2": {
         "heading": "Navigation",
-        "content": "Sie haben oben auf jeder Seite einen Button, um in den Vollbildmodus zu wechseln, sowie einen Button, um jederzeit die Sprache zu ändern. Ihre Standardsprache wird bei der Anmeldung festgelegt."
+        "content": "Sie haben oben auf jeder Seite einen Button, um in den Vollbildmodus zu wechseln (funktioniert nicht auf iPhone), sowie einen Button, um jederzeit die Sprache zu ändern. Ihre Standardsprache wird bei der Anmeldung festgelegt."
     },
     "sec3": {
         "heading": "Internetbrowser",
@@ -14,6 +19,10 @@
     },
     "sec4": {
         "heading": "Regeln",
-        "content": "Die Punkte werden von Samstag, dem 20. Mai, 15 Uhr, bis Sonntag, dem 21. Mai, 18 Uhr, gezählt. Sie dürfen sich nur einmal anmelden, andernfalls werden Sie disqualifiziert."
+        "content": "Die Punkte werden von Samstag, dem 20. Mai, 15 Uhr, bis Sonntag, dem 21. Mai, 18 Uhr, gezählt. Sie dürfen sich nur einmal anmelden, andernfalls werden Sie disqualifiziert. Jede Frage bringt 10, 20, 30 oder 40 Punkte je nach Schwierigkeitsgrad. Sie erfahren Ihren Punktestand erst am Ende des Spiels am Sonntag. Der Gewinner erhält einen einzigartigen Preis!"
+    },
+    "sec5": {
+        "heading": "Karte",
+        "content": "Im Spiel wird eine Google Maps-Karte zur Verfügung stehen. Sie definiert 5 Suchzonen, in denen sich Zwietess befinden (die Anzahl ist in jeder Zone angegeben). Wenn Sie die Google Maps-App haben, können Sie auf die Schaltfläche \"großer Bildschirm\" klicken, um eine bessere Benutzeroberfläche zu erhalten."
     }
 }
