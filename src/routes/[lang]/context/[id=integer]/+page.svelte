@@ -1,18 +1,19 @@
 <script lang="ts">
 	import { t } from '$lib/translations/translations';
-	import { Carousel, Heading, P, Button } from 'flowbite-svelte';
+	import { Heading, P, Button } from 'flowbite-svelte';
+	import Carousel from '../../../../components/FlowbiteCustomCarousel/Carousel.svelte';
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
 
 	let showThumbs = false;
 	let showCaptions = false;
-	let showIndicators = false;
+	let showIndicators = true;
 	export let data: PageData;
 	const images = data.context.carousel;
 </script>
 
 <div class="relative min-h-screen flex flex-col bg-gray-100">
-	<div class="sticky top-0 z-0 bg-slate-600">
+	<div class="sticky top-0 z-0 bg-slate-600 max-w-4xl">
 		<Carousel {images} {showThumbs} {showCaptions} {showIndicators} />
 	</div>
 	<div class="bg-white pt-4 pb-24 px-8 flex-grow flex flex-col">

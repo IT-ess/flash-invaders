@@ -119,7 +119,8 @@
 				{#if loading}
 					<Spinner color="yellow" size="40" />
 				{:else}
-					<GoRadioTower />
+					<GoRadioTower /> 
+					<!-- TODO: Replace this icon -->
 				{/if}
 			</div>
 		</div>
