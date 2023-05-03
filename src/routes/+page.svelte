@@ -4,9 +4,9 @@
 	import { Button, Heading, Span } from 'flowbite-svelte';
 </script>
 
-<div class="flex flex-col h-screen justify-center items-center font-sans text-center">
+<div class="flex flex-col h-screen w-screen justify-center items-center font-sans text-center">
 	<!-- <Heading tag="h1" color="primary" class="m-4" customSize="text-3xl"><Span>zwietess</Span></Heading> -->
-	<div><img src="/bandeau.jpg" alt="bandeau"/></div>
+	<div class="flex-initial w-full"><img src="/bandeau.jpg" alt="bandeau"/></div>
 	<div class="flex-grow bg-gray-200 w-full">
 		<img
 			src="/home.jpg"
