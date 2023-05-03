@@ -44,6 +44,7 @@
 			<p class="mb-2 text-gray-500 dark:text-gray-400">
 				{$t(`tutorial.sec3.content`)}
 			</p>
+			<a href="https://google.com/chrome/go-mobile" target="_blank">{$t(`tutorial.sec3.chrome`)}</a>
 		</AccordionItem>
 		<AccordionItem>
 			<span slot="header" class="text-base flex gap-2 w-fit">

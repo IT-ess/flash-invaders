@@ -1,6 +1,6 @@
 import type { Client, Repository, Schema } from 'redis-om';
 import type { Context } from './context.entity';
-import type { CarouselItem, ContextType } from '$lib/entities/Context';
+import type { CarouselItem, ContextItem, ContextType } from '$lib/entities/Context';
 
 export class ContextModel {
 	#redis: Client;
@@ -21,10 +21,20 @@ export class ContextModel {
 				imgurl: context.carouselUrls[i]
 			});
 		}
+		let contextItems: ContextItem[] = [];
+		for (let i = 0; i < context.itemsTypes.length; i++) {
+			contextItems.push({
+				// not really safe ...
+				type: context.itemsTypes[i],
+				source: context.itemsSources[i],
+				caption: context.itemsCaptions[i] !== '' ? context.itemsCaptions[i] : undefined
+			});
+		}
 		return {
 			id: +context.entityId,
 			name: context.name,
-			carousel: carouselItems
+			carousel: carouselItems,
+			items: contextItems
 		};
 	}
 }

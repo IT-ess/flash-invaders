@@ -20,13 +20,13 @@ export const load = (async ({ locals, params }) => {
 			return {
 				answered: false,
 				user,
-				context: await getContextFromAuth(user, +params.id, params.lang)
+				context: getContextFromAuth(user, +params.id, params.lang)
 			};
 		case 2:
 			return {
 				answered: true,
 				user,
-				context: await getContextFromAuth(user, +params.id, params.lang)
+				context: getContextFromAuth(user, +params.id, params.lang)
 			};
 		default:
 			// Should not happen since the matcher only gives some numbers

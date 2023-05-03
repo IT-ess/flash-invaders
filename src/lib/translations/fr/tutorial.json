@@ -15,7 +15,8 @@
     },
     "sec3": {
         "heading": "Navigateur internet",
-        "content": "Pour des raisons techniques, merci de n'utiliser que les navigateurs Chrome ou Firefox pour jouer au jeu (pas de Safari...)."
+        "content": "Pour des raisons techniques, merci de n'utiliser que les navigateurs Chrome ou Firefox pour jouer au jeu (pas de Safari...).",
+        "chrome": "Télécharger Chrome"
     },
     "sec4": {
         "heading": "Règles",

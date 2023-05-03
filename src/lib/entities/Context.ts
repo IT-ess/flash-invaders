@@ -1,14 +1,15 @@
 export type ContextType = {
 	id: number;
 	name: string;
-	// items: ContextItem[];
+	items: ContextItem[];
 	carousel: CarouselItem[];
 };
 
-// type ContextItem = {
-// 	type: 'text' | 'image' | 'video';
-// 	content: string;
-// };
+export type ContextItem = {
+	type: 'text' | 'audio' | 'video';
+	source: string;
+	caption?: string;
+};
 
 export type CarouselItem = {
 	name: string;

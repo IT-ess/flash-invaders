@@ -18,7 +18,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 		case 0:
 			throw redirect(307, `/${params.lang}/home`);
 		case 1:
-			return { questions: await getQuizzesFromAuth(user, +params.id, params.lang), user };
+			return { questions: getQuizzesFromAuth(user, +params.id, params.lang), user };
 		case 2:
 			return redirect(307, `/${params.lang}/context/${params.id}`);
 		default:

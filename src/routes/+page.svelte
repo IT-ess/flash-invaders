@@ -5,12 +5,12 @@
 </script>
 
 <div class="flex flex-col h-screen justify-center items-center font-sans text-center">
-	<Heading tag="h1" color="primary" class="m-4" customSize="text-3xl"><Span>zwietess</Span></Heading>
-	<div class="flex-1 bg-gray-200 w-full">
-		<!-- <img src="/logo_jumelage.png" alt="Jumelage logo" /> -->
+	<!-- <Heading tag="h1" color="primary" class="m-4" customSize="text-3xl"><Span>zwietess</Span></Heading> -->
+	<div><img src="/bandeau.jpg" alt="bandeau"/></div>
+	<div class="flex-grow bg-gray-200 w-full">
 		<img
-			src="https://imagedelivery.net/6ZM0ENVQ5B1N8ekukm4aPw/4795959e-115f-40f2-fdd4-af869a17f600/public"
-			alt="emotions"
+			src="/home.jpg"
+			alt="zwietess"
 			class="mx-auto"
 		/>
 	</div>
