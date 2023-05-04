@@ -15,7 +15,8 @@
     },
     "sec3": {
         "heading": "Internetbrowser",
-        "content": "Aus technischen Gründen verwenden Sie bitte nur die Browser Chrome oder Firefox, um das Spiel zu spielen (kein Safari...)."
+        "content": "Aus technischen Gründen verwenden Sie bitte nur die Browser Chrome oder Firefox, um das Spiel zu spielen (kein Safari...).",
+        "chrome": "Chrome herunterladen"
     },
     "sec4": {
         "heading": "Regeln",

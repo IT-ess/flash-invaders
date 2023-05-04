@@ -3,16 +3,12 @@
 	export let data: PageData;
 	import { Button, Heading, Span } from 'flowbite-svelte';
 </script>
-
-<div class="flex flex-col h-screen w-screen justify-center items-center font-sans text-center">
-	<!-- <Heading tag="h1" color="primary" class="m-4" customSize="text-3xl"><Span>zwietess</Span></Heading> -->
-	<div class="flex-initial w-full"><img src="/bandeau.jpg" alt="bandeau"/></div>
-	<div class="flex-grow bg-gray-200 w-full">
-		<img
-			src="/home.jpg"
-			alt="zwietess"
-			class="mx-auto"
-		/>
+<!-- <div class="absolute top-1/2 left-1/2">
+	<Heading tag="h1" color="primary" customSize="text-3xl"><Span>zwietess</Span></Heading>
+</div> -->
+<div class="flex flex-col h-full w-full justify-center items-center font-sans text-center">
+	<div class="flex-grow align-middle">
+			<img src="/home.webp" alt="zwietess" class="w-full h-full object-cover"/>
 	</div>
 	<div class="m-5 space-y-4">
 		{#if data.user}
@@ -37,7 +33,7 @@
 			</form>
 			<!-- This form is only for tests -->
 		{:else}
-			<div class="my-auto space-y-4">
+			<div class="my-auto space-y-4 flex-grow">
 				<Button href="/fr/tutorial" lang="fr">
 					C'est parti ! 🇫🇷 <svg
 						aria-hidden="true"
