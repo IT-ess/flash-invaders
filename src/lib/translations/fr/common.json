@@ -46,6 +46,7 @@
     "headers": {
         "/fr/home": "Recherche",
         "/fr/tutorial": "Tutoriel",
-        "/fr/map": "Carte"
+        "/fr/map": "Carte",
+        "/fr/gallery": "Galerie"
     }
 }

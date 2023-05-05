@@ -26,11 +26,10 @@
 
 <div class="relative h-screen w-screen flex flex-col">
 	{#if $page.data.header}
-	<header class="bg-gray-300 pr-28 flex items-center">
-		<img src="/bandeau.webp" alt="bandeau" class="w-1/4 mr-2"/>
-		<Header>{$t(`common.headers.${$page.url.pathname}`)}</Header>
-	  </header>
-	  
+		<header class="bg-gray-300 pr-28 flex items-center">
+			<img src="/bandeau.webp" alt="bandeau" class="w-1/4 mr-2" />
+			<Header>{$t(`common.headers.${$page.url.pathname}`)}</Header>
+		</header>
 	{/if}
 	<div class="fixed top-0 right-0 mt-4 mr-4 z-10">
 		<ButtonGroup class="space-x-px">

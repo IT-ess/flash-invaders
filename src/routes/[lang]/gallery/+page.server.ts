@@ -7,7 +7,7 @@ export const load: PageServerLoad = async ({ locals, params }) => {
 	if (user === null) {
 		throw redirect(307, `/${params.lang}/home`);
 	}
-	return { invadersInfos: await getInvaderFromState(user), nav: true };
+	return { invadersInfos: await getInvaderFromState(user), nav: true, header: true };
 };
 
 async function getInvaderFromState(user: Lucia.UserAttributes): Promise<InvadersInfos[]> {
