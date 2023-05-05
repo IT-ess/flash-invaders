@@ -26,7 +26,7 @@
 
 <div class="relative h-screen w-screen flex flex-col">
 	{#if $page.data.header}
-	<header class="bg-gray-300 p-4 pr-28 flex items-center">
+	<header class="bg-gray-300 pr-28 flex items-center">
 		<img src="/bandeau.webp" alt="bandeau" class="w-1/4 mr-2"/>
 		<Header>{$t(`common.headers.${$page.url.pathname}`)}</Header>
 	  </header>
