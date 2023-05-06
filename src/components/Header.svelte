@@ -4,4 +4,4 @@
 
 </script>
 
-<Heading tag="h1" color="primary" class="m-2" customSize="text-xl"><Span><slot/></Span></Heading>
+<Heading tag="h1" color="primary" class="ml-4" customSize="text-xl"><Span><slot/></Span></Heading>

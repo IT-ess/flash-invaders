@@ -2,7 +2,7 @@
 	import { t } from '$lib/translations/translations';
 	import '../app.css';
 	import { page } from '$app/stores';
-	import screenfull from 'screenfull';
+	import screenfull, { isEnabled } from 'screenfull';
 	import { ButtonGroup, Button, BottomNav, BottomNavItem, Tooltip } from 'flowbite-svelte';
 	import MdFullscreen from 'svelte-icons/md/MdFullscreen.svelte';
 	import MdFullscreenExit from 'svelte-icons/md/MdFullscreenExit.svelte';
@@ -27,23 +27,27 @@
 <div class="relative h-screen w-screen flex flex-col">
 	{#if $page.data.header}
 		<header class="bg-gray-300 pr-28 flex items-center">
-			<img src="/bandeau.webp" alt="bandeau" class="w-1/4 mr-2" />
+			<a href="/" class="w-[45%]">
+				<img src="/bandeau.webp" alt="bandeau" />
+			</a>
 			<Header>{$t(`common.headers.${$page.url.pathname}`)}</Header>
 		</header>
 	{/if}
 	<div class="fixed top-0 right-0 mt-4 mr-4 z-10">
 		<ButtonGroup class="space-x-px">
-			<Button
-				class="!p-2 inline-flex items-center justify-center w-10 h-10 font-medium group focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
-				outline={true}
-				on:click={() => screenfull.toggle()}
-			>
-				{#if screenfull.isFullscreen}
-					<MdFullscreenExit />
-				{:else}
-					<MdFullscreen />
-				{/if}
-			</Button>
+			{#if screenfull.isEnabled}
+				<Button
+					class="!p-2 inline-flex items-center justify-center w-10 h-10 font-medium group focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
+					outline={true}
+					on:click={() => screenfull.toggle()}
+				>
+					{#if screenfull.isFullscreen}
+						<MdFullscreenExit />
+					{:else}
+						<MdFullscreen />
+					{/if}
+				</Button>
+			{/if}
 			{#if $page.params.lang !== undefined}
 				<Button class="!p-2" outline={true} on:click={() => goto(newUrl)}>
 					{#if $page.params.lang === 'fr'}

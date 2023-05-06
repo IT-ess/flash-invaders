@@ -119,8 +119,10 @@
 				{#if loading}
 					<Spinner color="yellow" size="40" />
 				{:else}
-					<GoRadioTower /> 
-					<!-- TODO: Replace this icon -->
+					<span class="relative flex h-full w-full">
+						<GoRadioTower />
+						<span class="animate-[ping_3s_infinite] absolute inline-flex h-full w-full rounded-full bg-bluejum-lighter opacity-25"></span>
+					</span>
 				{/if}
 			</div>
 		</div>
