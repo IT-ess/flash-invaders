@@ -2,7 +2,7 @@
 	import { t } from '$lib/translations/translations';
 	import { applyAction, deserialize } from '$app/forms';
 	import type { ActionResult } from '@sveltejs/kit';
-	import { Button, Modal, Spinner } from 'flowbite-svelte';
+	import { Button, Heading, Modal, Spinner } from 'flowbite-svelte';
 	import type { InvaderType } from '$lib/entities/Invader';
 	import GoRadioTower from 'svelte-icons/go/GoRadioTower.svelte';
 
@@ -83,7 +83,9 @@
 					{$t('home.success_modal.message')}
 				</h2>
 				<img src={invader.imageUrl} alt="invaderthumbnail" />
-				<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{invader.name}</h3>
+				<div class="m-4">
+					<Heading tag="h3">{$t(`common.zwt${invader.id}.name`)}</Heading>
+				</div>
 				<Button href="/fr/context/{invader.id}" color="red" class="mr-2"
 					>{$t('home.success_modal.button')}</Button
 				>
