@@ -50,13 +50,10 @@
 			{/each}
 		</div>
 	</div>
-	{#if !data.answered}
-		<div class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0">
+	<div class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0 space-x-4">
+		<Button href="/{$page.params.lang}/gallery">{$t('context.gallery')}</Button>
+		{#if !data.answered}
 			<Button href="./{$page.params.id}/quiz">{$t(`context.quiz`)}</Button>
-		</div>
-	{:else}
-		<div class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0">
-			<Button href="../gallery">{$t(`context.gallery`)}</Button>
-		</div>
-	{/if}
+		{/if}
+	</div>
 </div>
