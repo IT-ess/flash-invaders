@@ -5,7 +5,7 @@
 	"scripts": {
 		"db": "cd docker && docker compose up -d && cd .. && npx prisma db push && npx prisma generate",
 		"dev": "vite dev",
-		"build": "npx prisma db push --accept-data-loss && npx prisma generate && vite build",
+		"build": "npx prisma db push && npx prisma generate && vite build",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -48,6 +48,7 @@
 	"dependencies": {
 		"@lucia-auth/adapter-prisma": "^2.0.0",
 		"@prisma/client": "4.13.0",
+		"dotenv": "^16.0.3",
 		"lucia-auth": "^1.5.0",
 		"redis-om": "0.3.6",
 		"zod": "^3.21.4"
