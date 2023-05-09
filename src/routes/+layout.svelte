@@ -51,9 +51,9 @@
 			{#if $page.params.lang !== undefined}
 				<Button class="!p-2" outline={true} on:click={() => goto(newUrl)}>
 					{#if $page.params.lang === 'fr'}
-						🇩🇪
-					{:else}
 						🇫🇷
+					{:else}
+						🇩🇪
 					{/if}
 				</Button>
 			{/if}
