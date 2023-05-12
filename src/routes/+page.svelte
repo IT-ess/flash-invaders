@@ -27,11 +27,11 @@
 					/></svg
 				>
 			</Button>
-
+<!-- 
 			<form action="/fr/auth/logout" method="POST">
 				<Button type="submit">Log out</Button>
 			</form>
-			<!-- This form is only for tests -->
+			This form is only for tests -->
 		{:else}
 			<div class="my-auto space-y-4 flex-grow">
 				<Button href="/fr/tutorial" lang="fr">
