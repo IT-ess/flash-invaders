@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 const config = {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
@@ -8,11 +10,12 @@ const config = {
 		extend: {},
 		colors: {
 			transparent: 'transparent',
+			primary: colors.blue,
 			current: 'currentColor',
-			bluejum: { DEFAULT: '#002153', light: '#37467e', lighter: '#646fab'},
+			bluejum: { DEFAULT: '#002153', light: '#37467e', lighter: '#646fab' },
 			yellowjum: { DEFAULT: '#FFCF00', light: '#caa100', lighter: '#977600' },
 			redjum: { DEFAULT: '#CF0821', light: '#f43d3a', lighter: '#ff6055' },
-			blackjum: { DEFAULT: '#000000', light: '#303030', lighter: '#5e5e5e' },
+			blackjum: { DEFAULT: '#000000', light: '#303030', lighter: '#5e5e5e' }
 		}
 	},
 
