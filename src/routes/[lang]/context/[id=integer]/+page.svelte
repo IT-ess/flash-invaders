@@ -13,6 +13,13 @@
 	const content = data.context.items;
 </script>
 
+<svelte:head>
+    {#each images as image}
+      <link rel="preload" as="image" href={image.imgurl} />
+    {/each}
+</svelte:head>
+<!-- Should prefetch in cache. A bit crapy but should work -->
+
 <div class="relative min-h-screen flex flex-col bg-gray-100">
 	<div class="sticky top-0 z-0 bg-slate-600 max-w-4xl">
 		<Carousel {images} {showThumbs} {showCaptions} {showIndicators} />

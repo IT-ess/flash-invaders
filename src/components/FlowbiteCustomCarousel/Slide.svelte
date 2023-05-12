@@ -6,5 +6,5 @@
 </script>
 
 <div class={slideClass}>
-	<img src={image} alt={altTag} title={attr} class="object-cover w-full h-full"/>
+	<img src={image} alt={altTag} title={attr} class="object-cover w-full h-full" loading="eager"/>
 </div>
