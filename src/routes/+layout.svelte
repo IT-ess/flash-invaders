@@ -16,6 +16,10 @@
 	let newLang: string;
 	let newUrl: string;
 
+	function openGoogleMaps() {
+		window.open('https://www.google.com/maps/d/viewer?mid=1qDy-Qcv9ScGx97vlB1Wy_9tvOIumt0I')
+	}
+
 	// Reactive statement to watch for changes in $page.params.lang
 	$: {
 		newLang = $page.params.lang === 'fr' ? 'de' : 'fr';
@@ -89,9 +93,9 @@
 				<Tooltip arrow={false}>{$t('common.nav.search')}</Tooltip>
 			</BottomNavItem>
 		</div>
-		<BottomNavItem btnName="Map" appBtnPosition="right">
+		<BottomNavItem btnName="Map" appBtnPosition="right" on:click={openGoogleMaps}>
 			<div class="w-6 h-6 mb-1 text-gray-500 group-hover:text-blue-600">
-				<a href="./map"> <FaMapMarkedAlt /> </a>
+				<FaMapMarkedAlt />
 			</div>
 			<Tooltip arrow={false}>{$t('common.nav.map')}</Tooltip>
 		</BottomNavItem>
