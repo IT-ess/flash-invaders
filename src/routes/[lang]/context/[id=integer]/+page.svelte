@@ -4,6 +4,7 @@
 	import Carousel from '../../../../components/FlowbiteCustomCarousel/Carousel.svelte';
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 
 	let showThumbs = false;
 	let showCaptions = false;
@@ -11,14 +12,18 @@
 	export let data: PageData;
 	const images = data.context.carousel;
 	const content = data.context.items;
-</script>
 
-<svelte:head>
-    {#each images as image}
-      <link rel="preload" as="image" href={image.imgurl} />
-    {/each}
-</svelte:head>
-<!-- Should prefetch in cache. A bit crapy but should work -->
+	onMount(() => {
+		preloadImages();
+	});
+
+	function preloadImages() {
+		images.forEach(({imgurl}) => {
+			const img = new Image();
+			img.src = imgurl;
+		});
+	}
+</script>
 
 <div class="relative min-h-screen flex flex-col bg-gray-100">
 	<div class="sticky top-0 z-0 bg-slate-600 max-w-4xl">
@@ -57,7 +62,9 @@
 			{/each}
 		</div>
 	</div>
-	<div class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0 space-x-4">
+	<div
+		class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0 space-x-4"
+	>
 		<Button href="/{$page.params.lang}/gallery">{$t('context.gallery')}</Button>
 		{#if !data.answered}
 			<Button href="./{$page.params.id}/quiz">{$t(`context.quiz`)}</Button>
