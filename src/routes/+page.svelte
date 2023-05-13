@@ -1,20 +1,23 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	export let data: PageData;
-	import { Button, Heading, Span } from 'flowbite-svelte';
+	import { Button } from 'flowbite-svelte';
+	let capitalized = '';
+	if (data.user) {
+		const firstname = data.user.username.split('.')[0];
+		capitalized = firstname.charAt(0).toUpperCase() + firstname.slice(1);
+	}
 </script>
-<!-- <div class="absolute top-1/2 left-1/2">
-	<Heading tag="h1" color="primary" customSize="text-3xl"><Span>zwietess</Span></Heading>
-</div> -->
+
 <div class="flex flex-col h-full w-full justify-center items-center font-sans text-center">
 	<div class="flex-grow align-middle">
-			<img src="/home.webp" alt="zwietess" class="w-full h-full object-cover"/>
+		<img src="/home.webp" alt="zwietess" class="w-full h-full object-cover" />
 	</div>
 	<div class="m-5 space-y-4">
 		{#if data.user}
 			<Button href="/fr/home">
 				<!-- TODO : handle redirection to correct home -->
-				Salut, {data.user.username}<svg
+				Salut {capitalized}<svg
 					aria-hidden="true"
 					class="ml-2 -mr-1 w-5 h-5"
 					fill="currentColor"
@@ -27,7 +30,7 @@
 					/></svg
 				>
 			</Button>
-<!-- 
+			<!-- 
 			<form action="/fr/auth/logout" method="POST">
 				<Button type="submit">Log out</Button>
 			</form>

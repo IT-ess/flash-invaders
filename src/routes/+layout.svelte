@@ -28,7 +28,7 @@
 	}
 </script>
 
-<div class="relative h-screen w-screen flex flex-col">
+<div class="relative h-screen w-screen flex flex-col container mx-auto">
 	{#if $page.data.header}
 		<header class="bg-gray-300 pr-28 flex items-center">
 			<a href="/" class="w-[45%]">

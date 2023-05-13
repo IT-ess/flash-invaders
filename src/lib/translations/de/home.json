@@ -1,13 +1,16 @@
 {
-    "button": {
-        "scan": "Ein Zwietess suchen"
-    },
-    "fail_modal": {
-        "message": "Nichts in der Nähe...",
-        "button": "Zurück"
-    },
-    "success_modal": {
-        "message": "Sie haben einen Zwietess gefunden!",
-        "button": "Zwietess anzeigen"
-    }
+	"button": {
+		"scan": "Ein Zwietess suchen"
+	},
+	"fail_modal": {
+		"message": "Nichts in der Nähe...",
+		"button": "Zurück"
+	},
+	"success_modal": {
+		"message": "Sie haben einen Zwietess gefunden!",
+		"button": "Zwietess anzeigen"
+	},
+	"geo_fail_modal": {
+		"message": "Sie haben die Geolokalisierung nicht zugelassen."
+	}
 }

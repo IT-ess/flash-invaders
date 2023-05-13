@@ -8,6 +8,7 @@
 
 	let successModal = false;
 	let failModal = false;
+	let geoFailModal = false;
 	let loading = false;
 	let invader: InvaderType;
 	let accuracy: number;
@@ -19,6 +20,8 @@
 					resolve(position);
 				},
 				(error: GeolocationPositionError) => {
+					loading = false;
+					if (error.code === error.PERMISSION_DENIED) geoFailModal = true;
 					reject(error);
 				},
 				{
@@ -116,6 +119,15 @@
 					{$t('home.fail_modal.message')}
 				</h2>
 				<Button color="alternative">{$t('home.fail_modal.button')}</Button>
+			</div>
+		</Modal>
+		<Modal bind:open={geoFailModal} size="md" autoclose>
+			<div class="text-center">
+				<div class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200"><GoRadioTower /></div>
+				<h2 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+					{$t('home.geo_fail_modal.message')}
+				</h2>
+				<Button color="red">{$t('home.fail_modal.button')}</Button>
 			</div>
 		</Modal>
 	</div>
