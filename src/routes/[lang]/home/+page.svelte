@@ -10,6 +10,7 @@
 	let failModal = false;
 	let loading = false;
 	let invader: InvaderType;
+	let accuracy: number;
 
 	function getCurrentLocation(): Promise<GeolocationPosition> {
 		return new Promise((resolve, reject) => {
@@ -33,6 +34,7 @@
 		loading = true;
 		const loc = await getCurrentLocation(); // TODO : handle error
 		const data = new FormData();
+		accuracy = loc.coords.accuracy;
 		data.append('lat', loc.coords.latitude.toString());
 		data.append('long', loc.coords.longitude.toString());
 		const response = await fetch('?/searchInvader', {
@@ -63,7 +65,7 @@
 
 <div class="flex flex-col h-full w-full items-center text-center">
 	<div class="z-[100]">
-		<Modal bind:open={successModal} size="m" autoclose>
+		<Modal bind:open={successModal} size="md" autoclose>
 			<div class="text-center">
 				<svg
 					aria-hidden="true"
@@ -85,13 +87,16 @@
 				<img src={invader.imageUrl} alt="invaderthumbnail" />
 				<div class="m-4">
 					<Heading tag="h3">{$t(`common.zwt${invader.id}.name`)}</Heading>
+					<Heading tag="h4">Précision : {accuracy}</Heading>
+					<Heading tag="h4">Lat : {invader.location.latitude}</Heading>
+					<Heading tag="h4">Long : {invader.location.longitude}</Heading>
 				</div>
 				<Button href="/fr/context/{invader.id}" color="red" class="mr-2"
 					>{$t('home.success_modal.button')}</Button
 				>
 			</div>
 		</Modal>
-		<Modal bind:open={failModal} size="m" autoclose>
+		<Modal bind:open={failModal} size="md" autoclose>
 			<div class="text-center">
 				<svg
 					aria-hidden="true"
@@ -123,7 +128,9 @@
 				{:else}
 					<span class="relative flex h-full w-full">
 						<GoRadioTower />
-						<span class="animate-[ping_3s_infinite] absolute inline-flex h-full w-full rounded-full bg-bluejum-lighter opacity-25"></span>
+						<span
+							class="animate-[ping_3s_infinite] absolute inline-flex h-full w-full rounded-full bg-bluejum-lighter opacity-25"
+						/>
 					</span>
 				{/if}
 			</div>
