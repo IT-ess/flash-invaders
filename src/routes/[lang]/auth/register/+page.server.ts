@@ -20,6 +20,13 @@ export const actions: Actions = {
 			string
 		>;
 
+		const bannedCharacterValidator = (bannedCharacter: string) => (value: string) => {
+			if (value.includes(bannedCharacter)) {
+				throw new Error(`The character "${bannedCharacter}" is not allowed.`);
+			}
+			return true;
+		};
+
 		const schema = z.object({
 			firstname: z
 				.string({
@@ -30,7 +37,9 @@ export const actions: Actions = {
 				})
 				.max(255, {
 					message: 'Name must be less than 255 characters long.'
-				}),
+				})
+				.refine(bannedCharacterValidator('.'), { message: 'The character "." is not allowed.' })
+				.refine(bannedCharacterValidator(','), { message: 'The character "," is not allowed.' }),
 			lastname: z
 				.string({
 					required_error: 'Lastname is required.'
@@ -40,7 +49,9 @@ export const actions: Actions = {
 				})
 				.max(255, {
 					message: 'Name must be less than 255 characters long.'
-				}),
+				})
+				.refine(bannedCharacterValidator('.'), { message: 'The character "." is not allowed.' })
+				.refine(bannedCharacterValidator(','), { message: 'The character "," is not allowed.' }),
 			locale: z
 				.string({
 					required_error: 'Locale is required.'
@@ -58,7 +69,7 @@ export const actions: Actions = {
 				locale
 			});
 		} catch (err) {
-			let message = 'Invalid data.';
+			let message = `Invalid data. ${err}`;
 			let invalidField: string | number = '';
 
 			if (err instanceof z.ZodError) {
