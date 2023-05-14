@@ -4,7 +4,10 @@
 	},
 	"fail_modal": {
 		"message": "Nichts in der Nähe...",
-		"button": "Zurück"
+		"button": "Zurück",
+		"bad_accuracy": "Unzureichende GPS-Genauigkeit",
+		"medium_accuracy": "Durchschnittliche GPS-Genauigkeit",
+		"good_accuracy": "Ausreichende GPS-Genauigkeit"
 	},
 	"success_modal": {
 		"message": "Sie haben einen Zwietess gefunden!",

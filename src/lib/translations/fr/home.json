@@ -4,7 +4,10 @@
 	},
 	"fail_modal": {
 		"message": "Rien dans les parages...",
-		"button": "Retour"
+		"button": "Retour",
+		"bad_accuracy": "Précision GPS insuffisante",
+		"medium_accuracy": "Précision GPS moyenne",
+		"good_accuracy": "Précision GPS suffisante"
 	},
 	"success_modal": {
 		"message": "Vous avez trouvé un Zwietess !",

@@ -90,9 +90,6 @@
 				<img src={invader.imageUrl} alt="invaderthumbnail" />
 				<div class="m-4">
 					<Heading tag="h3">{$t(`common.zwt${invader.id}.name`)}</Heading>
-					<Heading tag="h4">Précision : {accuracy}</Heading>
-					<Heading tag="h4">Lat : {invader.location.latitude}</Heading>
-					<Heading tag="h4">Long : {invader.location.longitude}</Heading>
 				</div>
 				<Button href="/fr/context/{invader.id}" color="red" class="mr-2"
 					>{$t('home.success_modal.button')}</Button
@@ -115,10 +112,23 @@
 						d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 					/></svg
 				>
-				<h2 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+				<h4 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
 					{$t('home.fail_modal.message')}
-				</h2>
-				<Button color="alternative">{$t('home.fail_modal.button')}</Button>
+				</h4>
+				{#if accuracy >= 40}
+					<h4 class="mb-5 text-lg font-normal text-red-500 dark:text-gray-400">
+						{$t('home.fail_modal.bad_accuracy')}
+					</h4>
+				{:else if accuracy < 40 && accuracy >= 20}
+					<h4 class="mb-5 text-lg font-normal text-orange-400 dark:text-gray-400">
+						{$t('home.fail_modal.medium_accuracy')}
+					</h4>
+				{:else if accuracy < 20}
+					<h4 class="mb-5 text-lg font-normal text-green-600 dark:text-gray-400">
+						{$t('home.fail_modal.good_accuracy')}
+					</h4>
+				{/if}
+				<Button color="red">{$t('home.fail_modal.button')}</Button>
 			</div>
 		</Modal>
 		<Modal bind:open={geoFailModal} size="md" autoclose>
