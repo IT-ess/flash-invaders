@@ -7,23 +7,23 @@
     "warning": "Bitte lesen Sie die Regeln, bevor Sie sich anmelden!",
 	"sec1": {
 		"heading": "Funktionsweise",
-		"content": "Dieses Spiel funktioniert dank Ihrer Standortbestimmung. Sie müssen sich also in der Nähe (~5m) des Zwietess befinden, um ihn \"einzufangen\". Außerdem müssen Sie den Zugriff auf Ihren Standort erlauben, damit die Anwendung ordnungsgemäß funktioniert."
+		"content": "Dieses Spiel funktioniert über deinen Standort (du musst ihn also erlauben, wenn du danach gefragt wirst). Um einen Zwietess „fangen“ zu können, müssen Sie sich in der Nähe befinden (5m ~) und die Taste „Zwietess suchen“ drücken. Es kann sein, dass dein Standort zu ungenau ist, in diesem Fall kannst du ein paar Meter weitergehen und es erneut versuchen."
 	},
     "sec2": {
         "heading": "Navigation",
-        "content": "Sie haben oben auf jeder Seite einen Button, um in den Vollbildmodus zu wechseln (funktioniert nicht auf iPhone), sowie einen Button, um jederzeit die Sprache zu ändern. Ihre Standardsprache wird bei der Anmeldung festgelegt."
+        "content": "Sie haben oben auf jeder Seite eine Schaltfläche, mit der Sie in den Vollbildmodus wechseln können (funktioniert nicht auf dem iPhone), sowie eine Schaltfläche, mit der Sie jederzeit die Sprache wechseln können. Ihre Standardsprache wird bei der Anmeldung festgelegt. Es stehen Ihnen drei Seiten zur Verfügung: die Seite, auf der Sie nach Zwietess suchen können, die Galerie, in der Sie sich die gefundenen Zwietess noch einmal ansehen können, und der Kartenteil, in dem Sie die Suchgebiete sehen können."
     },
     "sec3": {
         "heading": "Internetbrowser",
-        "content": "Aus technischen Gründen verwenden Sie bitte nur die Browser Chrome oder Firefox, um das Spiel zu spielen (kein Safari...).",
+        "content": "Aus technischen Gründen verwenden Sie bitte den Chrome-Browser, um das Spiel zu spielen ( vor allem nicht Safari...). Sobald Sie Ihr Konto in diesem Browser erstellt haben, werden Sie automatisch wieder eingeloggt, wenn Sie das Spiel verlassen haben.",
         "chrome": "Chrome herunterladen"
     },
     "sec4": {
         "heading": "Regeln",
-        "content": "Die Punkte werden von Samstag, dem 20. Mai, 15 Uhr, bis Sonntag, dem 21. Mai, 18 Uhr, gezählt. Sie dürfen sich nur einmal anmelden, andernfalls werden Sie disqualifiziert. Jede Frage bringt 10, 20, 30 oder 40 Punkte je nach Schwierigkeitsgrad. Sie erfahren Ihren Punktestand erst am Ende des Spiels am Sonntag. Der Gewinner erhält einen einzigartigen Preis!"
+        "content": "Die Punkte werden von Samstag, dem 20. Mai, 16 Uhr bis Sonntag, dem 21. Mai, 12 Uhr gezählt. Sie dürfen sich nur einmal anmelden, andernfalls werden Sie disqualifiziert. Jede Frage bringt je nach Schwierigkeitsgrad 10,20,30 oder 40 Punkte. Sie erfahren Ihre Punktzahl erst am Ende des Spiels, am Sonntag, und man kann das Quiz nur einmal beantworten. Der Gewinner erhält einen einzigartigen Preis!"
     },
     "sec5": {
         "heading": "Karte",
-        "content": "Im Spiel wird eine Google Maps-Karte zur Verfügung stehen. Sie definiert 5 Suchzonen, in denen sich Zwietess befinden (die Anzahl ist in jeder Zone angegeben). Wenn Sie die Google Maps-App haben, können Sie auf die Schaltfläche \"großer Bildschirm\" klicken, um eine bessere Benutzeroberfläche zu erhalten."
+        "content": "Eine Google-Maps-Karte wird im Spiel zugänglich sein. Sie definiert 5 Suchgebiete, in denen Zwietess zu finden sind (die Anzahl ist auf jedem Gebiet angegeben). Wenn Sie die Google Maps-App haben und Chrome verwenden, sollte die Karte direkt in der Maps-App geöffnet werden."
     }
 }
