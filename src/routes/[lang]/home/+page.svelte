@@ -5,6 +5,7 @@
 	import { Button, Heading, Modal, Spinner } from 'flowbite-svelte';
 	import type { InvaderType } from '$lib/entities/Invader';
 	import GoRadioTower from 'svelte-icons/go/GoRadioTower.svelte';
+	import { page } from '$app/stores';
 
 	let successModal = false;
 	let failModal = false;
@@ -91,7 +92,7 @@
 				<div class="m-4">
 					<Heading tag="h3">{$t(`common.zwt${invader.id}.name`)}</Heading>
 				</div>
-				<Button href="/fr/context/{invader.id}" color="red" class="mr-2"
+				<Button href="/{$page.params.lang}/context/{invader.id}" color="red" class="mr-2"
 					>{$t('home.success_modal.button')}</Button
 				>
 			</div>
