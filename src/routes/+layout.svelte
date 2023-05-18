@@ -52,7 +52,7 @@
 					{/if}
 				</Button>
 			{/if}
-			{#if ($page.params.lang !== undefined) && ('quiz' in $page.route)}
+			{#if ($page.params.lang !== undefined) && (!$page.url.pathname.match('quiz'))}
 				<Button class="!p-2" outline={true} on:click={() => goto(newUrl)}>
 					{#if $page.params.lang === 'fr'}
 						🇫🇷

@@ -2345,7 +2345,7 @@ __metadata:
     eslint-config-prettier: ^8.8.0
     eslint-plugin-svelte3: ^4.0.0
     flowbite: ^1.6.5
-    flowbite-svelte: ^0.35.1
+    flowbite-svelte: ^0.35.4
     lucia-auth: ^1.5.0
     postcss: ^8.4.21
     prettier: ^2.8.8
@@ -2383,9 +2383,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flowbite-svelte@npm:^0.35.1":
-  version: 0.35.1
-  resolution: "flowbite-svelte@npm:0.35.1"
+"flowbite-svelte@npm:^0.35.4":
+  version: 0.35.4
+  resolution: "flowbite-svelte@npm:0.35.4"
   dependencies:
     "@docsearch/js": ^3.3.4
     "@popperjs/core": ^2.11.7
@@ -2396,7 +2396,7 @@ __metadata:
     classnames: ^2.3.2
     flowbite: ^1.6.3
     svelte: ^3.55.1
-  checksum: b0b38847e713e717520024f0b926a1bdc77ec0c6e05eb8efcb03e9804dc2e67529b44a14d3e7b8b8731c78c37f60c1fcf61b630072e0270bc5128145c2c1a5ec
+  checksum: e96f4d0863b5772891d09437ef78d69e4ebaf23add91b6dd230bc9f2c50b84714413b9edae062c03c16053ed5b5cc41ce8b4d26bfe215ad3b29ca34e481203ce
   languageName: node
   linkType: hard
 
