@@ -26,7 +26,7 @@
 </script>
 
 <div class="relative min-h-screen flex flex-col bg-gray-100">
-	<div class="bg-white pt-4 pb-24 px-8 flex-grow flex flex-col overflow-y-auto mb-6">
+	<div class="bg-white pt-4 px-8 flex-grow flex flex-col overflow-y-auto pb-6">
 		<Carousel {images} {showThumbs} {showCaptions} {showIndicators} />
 		<div class="pb-4 mt-4">
 			<Heading tag="h1">{$t(`common.zwt${$page.params.id}.name`)}</Heading>
@@ -61,7 +61,7 @@
 		</div>
 	</div>
 	<div
-		class="left-0 w-full h-24 flex justify-center items-center bg-gray-200 fixed bottom-0 space-x-4"
+		class="w-full h-24 flex justify-center items-center bg-gray-200 space-x-4"
 	>
 		<Button href="/{$page.params.lang}/gallery">{$t('context.gallery')}</Button>
 		{#if !data.answered}

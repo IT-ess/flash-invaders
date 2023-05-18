@@ -52,7 +52,7 @@
 					{/if}
 				</Button>
 			{/if}
-			{#if $page.params.lang !== undefined}
+			{#if ($page.params.lang !== undefined) && ('quiz' in $page.route)}
 				<Button class="!p-2" outline={true} on:click={() => goto(newUrl)}>
 					{#if $page.params.lang === 'fr'}
 						🇫🇷
