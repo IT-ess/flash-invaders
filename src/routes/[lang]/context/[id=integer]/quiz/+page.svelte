@@ -35,7 +35,7 @@
 					class="text-yellowjum"
 				/><span class="text-blackjum" />
 			</div>
-			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow">
+			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow overflow-y-auto">
 				{#each questions[questionPointer].options as opt, i}
 					<Button
 						btnClass="text-center font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-6 text-m text-white focus:ring-blue-300 rounded-lg w-full {themeColorsBg[

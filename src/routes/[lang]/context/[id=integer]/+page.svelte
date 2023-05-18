@@ -26,7 +26,7 @@
 </script>
 
 <div class="relative min-h-screen flex flex-col bg-gray-100">
-	<div class="bg-white pt-4 pb-24 px-8 flex-grow flex flex-col overflow-y-scroll mb-6">
+	<div class="bg-white pt-4 pb-24 px-8 flex-grow flex flex-col overflow-y-auto mb-6">
 		<Carousel {images} {showThumbs} {showCaptions} {showIndicators} />
 		<div class="pb-4 mt-4">
 			<Heading tag="h1">{$t(`common.zwt${$page.params.id}.name`)}</Heading>
