@@ -23,7 +23,7 @@
 
 <div class="fixed top-0 left-0 w-screen h-screen z-0">
 	{#if !(questionPointer > answers.length - 1)}
-		<div class="w-full h-full flex flex-col pb-24">
+		<div class="w-full h-full flex flex-col">
 			<div class="my-0">
 				<Progressbar progress="+{(questionPointer / questions.length) * 100}" size="h-1.5" />
 			</div>
@@ -35,7 +35,7 @@
 					class="text-yellowjum"
 				/><span class="text-blackjum" />
 			</div>
-			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow overflow-y-auto">
+			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow overflow-y-auto pb-20">
 				{#each questions[questionPointer].options as opt, i}
 					<Button
 						btnClass="text-center font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-6 text-m text-white focus:ring-blue-300 rounded-lg w-full {themeColorsBg[
