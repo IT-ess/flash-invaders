@@ -2,7 +2,7 @@
 	import { t } from '$lib/translations/translations';
 	import type { ActionData } from './$types';
 	import { enhance } from '$app/forms';
-	import { Label, Input, Button, Heading } from 'flowbite-svelte';
+	import { Label, Input, Button } from 'flowbite-svelte';
 	import { page } from '$app/stores';
 	export let form: ActionData;
 </script>
@@ -52,7 +52,7 @@
 		
 		<input name="locale" type="hidden" value={$page.params.lang} />
 		
-		<Button gradient color="purpleToBlue" type="submit" class="w-full py-2 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">{$t('auth.register')}</Button>
+		<Button type="submit" class="w-full py-2 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">{$t('auth.register')}</Button>
 	</div>
 </form>
 

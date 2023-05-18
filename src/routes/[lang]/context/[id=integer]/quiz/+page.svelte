@@ -35,7 +35,7 @@
 					class="text-yellowjum"
 				/><span class="text-blackjum" />
 			</div>
-			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow overflow-y-auto pb-20">
+			<div class="flex flex-col items-center justify-evenly min-h-1/2 flex-grow overflow-y-auto">
 				{#each questions[questionPointer].options as opt, i}
 					<Button
 						btnClass="text-center font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-6 text-m text-white focus:ring-blue-300 rounded-lg w-full {themeColorsBg[
@@ -51,7 +51,7 @@
 					</Button>
 				{/each}
 			</div>
-			<div class="left-0 w-full h-20 flex justify-center items-center bg-gray-200 fixed bottom-0">
+			<div class="w-full h-20 flex justify-center items-center bg-gray-200">
 				<Button
 					on:click={() => {
 						if (questions[questionPointer].correctIndex == answers[questionPointer]) {
