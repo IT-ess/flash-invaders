@@ -64,6 +64,6 @@ export const actions = {
 		const session = await auth.createSession(updatedUser.id);
 		locals.setSession(session);
 		// A 500 error is thrown here but I don't know why.
-		throw redirect(307, `/${params.lang}/home`);
+		throw redirect(307, `/${params.lang}/context/${params.id}`);
 	}
 } satisfies Actions;
