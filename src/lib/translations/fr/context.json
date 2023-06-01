@@ -2,7 +2,7 @@
 	"quiz": "Passer au quiz",
 	"gallery": "Retourner à la galerie",
 	"zwt0": {
-		"content": "Le logo, abréviation de “logotype”, est le dessin, la représentation symbolique de notre jumelage, il est son “identité”. Notre logo ou plutôt nos logos servent ou ont servi à porter nos valeurs d’amitié, nos valeurs d’entente avec le pays voisin, à fédérer les générations qui ont fait de notre jumelage ce qu’il est aujourd’hui. Il sert aujourd'hui de point de départ à votre chasse aux Zwietess !"
+		"content": "Le logo, abréviation de “logotype”, est le dessin, la représentation symbolique de notre jumelage, il est son “identité”. Notre logo ou plutôt nos logos servent ou ont servi à porter nos valeurs d’amitié, nos valeurs d’entente avec le pays voisin, à fédérer les générations qui ont fait de notre jumelage ce qu’il est aujourd’hui. Il sert aujourd'hui de point de départ à votre chasse aux Zwietess ! Ce Zwietess n'est aujourd'hui plus disponible pour le scan, mais il vous servira ici de tutoriel."
 	},
 	"zwt1": {
 		"content": "Depuis 1973, date à laquelle la charte du jumelage est signée entre les deux municipalités de Zwiefalten et de la Tessoualle, de nombreux échanges de cadeaux ont eu lieu. Cette stèle, une ronde joyeuse et tournoyante symbolise l’amitié et la jeunesse. Elle est l’œuvre d’un artiste Allemand. Fabriquée en deux exemplaires, un pour chaque commune, celle de la Tessoualle fut offerte par Zwiefalten en 2003 pour le 30eme anniversaire. La Ronde est placée à côté du Cercle, car c'est là qu'est le coeur du jumelage à la Tessoualle, lors des arrivées, des répartitions en familles, des fêtes..."
@@ -33,5 +33,8 @@
 	},
 	"zwt10": {
 		"content": "Inaugurée en 1979, cette salle fut le théâtre de nombreuses manifestations, bals publics, mariages, fêtes des écoles, moments conviviaux du jumelage entre autres… notamment les fameuses soirées d'adieu ! Ces soirées, en toute fin de semaine, concentrent des émotions diverses : joie, rires, amour mais aussi tristesse des adieux. La coutume veut qu'il y ait un thème et des jeux pour rendre chaque soirée d'adieu, inoubliable."
+	},
+	"zwt11": {
+		"content": "Ce Zwietess final a été remis à l'équipe de Ghislaine Brault lors du banquet du 50e anniversaire. Il symbolise une médaille d'or, pour l'équipe qui a le mieux répondu aux questions du quiz (1000 points marqués sur 1100)."
 	}
 }

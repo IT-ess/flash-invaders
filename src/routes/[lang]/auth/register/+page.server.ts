@@ -97,7 +97,7 @@ export const actions: Actions = {
 				attributes: {
 					username: username,
 					score: 0,
-					zwt0: 0,
+					zwt0: 1, // we give the tutorial for free since it's no longer available
 					zwt1: 0,
 					zwt2: 0,
 					zwt3: 0,

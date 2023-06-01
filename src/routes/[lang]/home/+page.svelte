@@ -2,10 +2,11 @@
 	import { t } from '$lib/translations/translations';
 	import { applyAction, deserialize } from '$app/forms';
 	import type { ActionResult } from '@sveltejs/kit';
-	import { Button, Heading, Modal, Spinner } from 'flowbite-svelte';
+	import { P, Button, Heading, Modal, Spinner } from 'flowbite-svelte';
 	import type { InvaderType } from '$lib/entities/Invader';
 	import GoRadioTower from 'svelte-icons/go/GoRadioTower.svelte';
 	import { page } from '$app/stores';
+	import type { PageData } from './$types';
 
 	let successModal = false;
 	let failModal = false;
@@ -13,6 +14,7 @@
 	let loading = false;
 	let invader: InvaderType;
 	let accuracy: number;
+	export let data: PageData;
 
 	function getCurrentLocation(): Promise<GeolocationPosition> {
 		return new Promise((resolve, reject) => {
@@ -159,6 +161,13 @@
 			</div>
 		</div>
 	</div>
+	{#if data !== undefined}
+		<div class="bg-gray-200 py-3 w-full">
+			<P align="center" height="loose" size="xl" weight="extrabold">
+				Score : {data.user?.score} / 1200
+			</P>
+		</div>
+	{/if}
 
 	<div class="p-4 w-full h-24 flex justify-center items-center">
 		<form method="POST" on:submit|preventDefault={handleSubmit}>
