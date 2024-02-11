@@ -61,6 +61,7 @@
 
 <div id="default-carousel" class="relative">
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class={divClass} on:click={toggleFocused}>
 		<Slide image={image.imgurl} altTag={image.name} attr={image.attribution} {slideClass} />
 	</div>
@@ -147,6 +148,7 @@
 
 	{#if focused}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
 			class="fixed top-0 left-0 w-screen h-screen bg-black/80 z-[110] flex justify-center items-center"
 			on:click={toggleFocused}

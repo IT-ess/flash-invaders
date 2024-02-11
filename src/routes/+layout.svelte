@@ -2,7 +2,7 @@
 	import { t } from '$lib/translations/translations';
 	import '../app.css';
 	import { page } from '$app/stores';
-	import screenfull, { isEnabled } from 'screenfull';
+	import screenfull from 'screenfull';
 	import { ButtonGroup, Button, BottomNav, BottomNavItem, Tooltip } from 'flowbite-svelte';
 	import MdFullscreen from 'svelte-icons/md/MdFullscreen.svelte';
 	import MdFullscreenExit from 'svelte-icons/md/MdFullscreenExit.svelte';
@@ -84,7 +84,7 @@
 		<div class="flex items-center justify-center">
 			<BottomNavItem
 				btnName="Search"
-				appBtnPosition="custom"
+				appBtnPosition="middle"
 				btnDefault="inline-flex items-center justify-center w-10 h-10 font-medium bg-blue-600 rounded-full hover:bg-blue-700 group focus:ring-4 focus:ring-blue-300 focus:outline-none dark:focus:ring-blue-800"
 			>
 				<div class="w-6 h-6 text-white">

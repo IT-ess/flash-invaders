@@ -30,7 +30,7 @@
 </script>
 
 <div class="flex gap-10 fixed top-4 z-50">
-	<Toast simple transition={slide} bind:open={showToast} color="red">
+	<Toast transition={slide} bind:open={showToast} color="red">
 		<svelte:fragment slot="icon">
 			<GoAlert/>
 		</svelte:fragment>
