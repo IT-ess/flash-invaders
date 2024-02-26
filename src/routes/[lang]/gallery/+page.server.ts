@@ -1,19 +1,27 @@
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { api } from '$lib/server/api';
+import { auth } from '$lib/server/lucia';
 
-export const load: PageServerLoad = async ({ locals, params }) => {
-	const { user } = await locals.validateUser();
+export const load: PageServerLoad = async (event) => {
+	const authRequest = auth.handleRequest(event);
+	const session = await authRequest.validate();
+	if (!session) {
+		redirect(302, '/');
+	}
+	const { user } = session;
+
+	const { params } = event;
 	if (user === null) {
-		throw redirect(307, `/${params.lang}/home`);
+		redirect(307, `/${params.lang}/home`);
 	}
 	return { invadersInfos: await getInvaderFromState(user), nav: true, header: true };
 };
 
-async function getInvaderFromState(user: Lucia.UserAttributes): Promise<InvadersInfos[]> {
+async function getInvaderFromState(user: Lucia.DatabaseUserAttributes): Promise<InvadersInfos[]> {
 	const invadersInfos: InvadersInfos[] = [];
 	for (let i = 0; i < 12; i++) {
-		const invaderState = user[`zwt${i}` as keyof Lucia.UserAttributes] as number;
+		const invaderState = user[`zwt${i}` as keyof Lucia.DatabaseUserAttributes] as number;
 		if (invaderState > 0) {
 			const invader = await api.invadersModel.getInvaderById(i);
 			invadersInfos.push({

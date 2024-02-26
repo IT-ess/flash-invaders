@@ -2,20 +2,27 @@ import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { ContextType } from '$lib/entities/Context';
 import { api } from '$lib/server/api';
+import { auth } from '$lib/server/lucia';
 
-export const load = (async ({ locals, params }) => {
+export const load = (async (event) => {
+	const authRequest = auth.handleRequest(event);
+	const session = await authRequest.validate();
+	const params = event.params;
+	if (!session) {
+		redirect(302, '/');
+	}
 	if (+params.id > 11) {
 		// should be ok since the matcher is restrictive
-		throw redirect(307, `/${params.lang}/home`);
+		redirect(307, `/${params.lang}/home`);
 	}
-	const { user } = await locals.validateUser();
+	const { user } = session;
 	if (user === null) {
-		throw redirect(307, `/${params.lang}/home`);
+		redirect(307, `/${params.lang}/home`);
 	}
-	const invaderState = user[`zwt${params.id}` as keyof Lucia.UserAttributes];
+	const invaderState = user[`zwt${params.id}` as keyof Lucia.DatabaseUserAttributes];
 	switch (invaderState) {
 		case 0:
-			throw redirect(307, `/${params.lang}/home`);
+			redirect(307, `/${params.lang}/home`);
 		case 1:
 			return {
 				answered: false,
@@ -30,18 +37,18 @@ export const load = (async ({ locals, params }) => {
 			};
 		default:
 			// Should not happen since the matcher only gives some numbers
-			throw redirect(307, `/${params.lang}/home`);
+			redirect(307, `/${params.lang}/home`);
 	}
 }) satisfies PageServerLoad;
 
 async function getContextFromAuth(
-	user: Lucia.UserAttributes,
+	user: Lucia.DatabaseUserAttributes,
 	id: number,
 	lang: string
 ): Promise<ContextType> {
-	const invaderState = user[`zwt${id}` as keyof Lucia.UserAttributes];
+	const invaderState = user[`zwt${id}` as keyof Lucia.DatabaseUserAttributes];
 	if (!invaderState) {
-		throw redirect(307, `/${lang}/home`);
+		redirect(307, `/${lang}/home`);
 	}
 	return getContextFromId(id);
 }

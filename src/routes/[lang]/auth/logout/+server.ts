@@ -2,15 +2,16 @@ import { redirect } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { auth } from '$lib/server/lucia';
 
-export const POST: RequestHandler = async ({ locals }) => {
-	const session = await locals.validate();
+export const POST: RequestHandler = async (event) => {
+	const authRequest = auth.handleRequest(event);
+	const session = await authRequest.validate();
 
 	if (!session) {
-		throw redirect(302, '/');
+		redirect(302, '/');
 	}
 
 	await auth.deleteUser(session.userId);
-	locals.setSession(null);
+	auth.invalidateSession(session)
 
-	throw redirect(302, '/');
+	redirect(302, '/');
 };

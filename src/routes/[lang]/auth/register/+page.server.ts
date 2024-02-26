@@ -2,19 +2,20 @@ import { fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { z } from 'zod';
 import { auth } from '$lib/server/lucia';
-import { LuciaError } from 'lucia-auth';
+import { LuciaError } from 'lucia';
 
-export const load: PageServerLoad = async ({ locals }) => {
-	const session = await locals.validate();
+export const load: PageServerLoad = async (event) => {
+	const authRequest = auth.handleRequest(event);
+	const session = await authRequest.validate();
 
 	if (session) {
-		throw redirect(302, '/');
+		redirect(302, '/');
 	}
 	return {};
 };
 
 export const actions: Actions = {
-	default: async ({ request, locals }) => {
+	default: async ({ request }) => {
 		const { firstname, lastname, locale } = Object.fromEntries(await request.formData()) as Record<
 			string,
 			string
@@ -87,9 +88,8 @@ export const actions: Actions = {
 		// Create the user
 		try {
 			const username = `${firstname.trim().toLowerCase()}.${lastname.trim().toLowerCase()}`;
-			// vérifier si les noms composés foutent pas le bordel
 			const user = await auth.createUser({
-				primaryKey: {
+				key: {
 					providerId: 'username',
 					providerUserId: username,
 					password: null
@@ -114,8 +114,10 @@ export const actions: Actions = {
 			});
 
 			const session = await auth.createSession(user.id);
+			auth.createSessionCookie(session);
+			// setSessionCookie(session);
 
-			locals.setSession(session);
+			// locals.setSession(session);
 		} catch (err) {
 			if (err instanceof LuciaError) {
 				if (err.message === 'AUTH_DUPLICATE_KEY_ID') {
@@ -132,6 +134,6 @@ export const actions: Actions = {
 				error: true
 			});
 		}
-		throw redirect(302, `/${locale}/home`);
+		redirect(302, `/${locale}/home`);
 	}
 };

@@ -6,7 +6,7 @@ import { notAuthRoutes } from '$lib/server/routesConfig';
 
 export const handle: Handle = sequence(
 	async ({ event, resolve }) => {
-		event.locals = auth.handleRequest(event);
+		event.locals.auth = auth.handleRequest(event);
 		return await resolve(event);
 	},
 	async ({ event, resolve }) => {
@@ -16,8 +16,9 @@ export const handle: Handle = sequence(
 			!event.url.pathname.includes('/tutorial') &&
 			!notAuthRoutes.includes(event.url.pathname)
 		) {
-			const session = await event.locals.validate();
-			if (!session) throw redirect(302, '/');
+			const authRequest = auth.handleRequest(event);
+			const session = await authRequest.validate();
+			if (!session) redirect(302, '/');
 		}
 
 		return await resolve(event);

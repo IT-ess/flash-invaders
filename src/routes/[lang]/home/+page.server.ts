@@ -1,10 +1,15 @@
 import { api } from '$lib/server/api';
 import type { Actions, PageServerLoad } from './$types';
 import { auth } from '$lib/server/lucia';
-import { fail, error } from '@sveltejs/kit';
+import { fail, error, redirect } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async ({ locals }) => {
-	const { user } = await locals.validateUser();
+export const load: PageServerLoad = async (event) => {
+	const authRequest = auth.handleRequest(event);
+	const session = await authRequest.validate();
+	if (!session) {
+		redirect(302, '/');
+	}
+	const { user } = session;
 	if (user) {
 		return {
 			user,
@@ -15,28 +20,35 @@ export const load: PageServerLoad = async ({ locals }) => {
 };
 
 export const actions = {
-	searchInvader: async ({ locals, request }) => {
+	searchInvader: async (event) => {
+		const { request } = event;
 		const data = await request.formData();
 		const lat = data.get('lat');
 		const long = data.get('long');
-		const { user } = await locals.validateUser();
+
+		const authRequest = auth.handleRequest(event);
+		const session = await authRequest.validate();
+		if (!session) {
+			redirect(302, '/');
+		}
+		const { user } = session;
 		if (user === null) {
-			throw error(401, { message: 'Unauthorized' });
+			error(401, { message: 'Unauthorized' });
 		}
 		if (lat && long) {
 			const invader = await api.invadersModel.getInvaderByLocation(+lat, +long).catch((err) => {
-				throw error(500, { message: err.message });
+				error(500, { message: err.message });
 			});
 			if (invader !== null) {
-				const invaderState = user[`zwt${invader.id}` as keyof Lucia.UserAttributes];
+				const invaderState = user[`zwt${invader.id}` as keyof Lucia.DatabaseUserAttributes];
 				switch (invaderState) {
 					case 0: {
-						const updatedUser = await auth.updateUserAttributes(user.id, {
+						await auth.updateUserAttributes(user.id, {
 							[`zwt${invader.id}`]: 1
 						});
-						await auth.invalidateAllUserSessions(updatedUser.id);
-						const session = await auth.createSession(updatedUser.id);
-						locals.setSession(session);
+						// await auth.invalidateAllUserSessions(updatedUser.id);
+						// const session = await auth.createSession(updatedUser.id);
+						// locals.setSession(session);
 						return invader;
 					}
 					case 1:
@@ -44,7 +56,7 @@ export const actions = {
 						return invader;
 					}
 					default: {
-						throw error(500, { message: 'Something went wrong' });
+						error(500, { message: 'Something went wrong' });
 					}
 				}
 			} else {
